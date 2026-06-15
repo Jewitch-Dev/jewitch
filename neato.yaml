@@ -1,0 +1,74 @@
+# Neato Configuration
+
+# Please note that Neato is still in an early state, and configuration options will likely change.
+
+
+# Site Details
+# ------------
+# This is where you define details about your site.
+
+site:
+  # The domain for your website
+  domain: www.your-site.net
+  # The date that you registered the domain (used for RFC 4151 tag URIs)
+  date_registered: 2024-10-07
+
+
+# Paths
+# -----
+# Paths are defined here. Don't include a trailing slash.
+
+paths:
+  # The directory containing your pages/content
+  content: "./content"
+  
+  # The directory containing your template(s)
+  templates: "./templates"
+  
+  # The directory where your static site will be published
+  published: "./published"
+  
+  # The directory containing your Power-Ups
+  power-ups: "./power-ups"
+  
+  # The directory housing Neato and Power-Up assets (your own site assets can live in paths.content defined above)
+  assets: "../assets"
+  
+  # The directory where Neato will store its cached data
+  cache: "./cache"
+
+
+# Templates
+# ---------
+# Define the templates your site uses here.
+
+templates:
+  # This is your default page template
+  page: "page.html"
+
+
+# Metadata
+# --------
+# This is where you can define your metadata/YAML frontmatter preferences.
+
+metadata:
+  # The name of the unique identifier key for your content. If you don't have one, you can leave the default (uuid) and Neato will use that (and will generate UUIDs for your content). Otherwise, if you do, set it to your own key name and Neato will treat that as the unique identifier for your content.
+  id_key: uuid
+  
+  # If you're working with content that was previously managed in another system, you can identify the names of the keys previously used (e.g. "created" might be "created_on" or "created-at") so that your existing metadata can work with Neato.
+  title_key: title
+  description_key: description
+  created_key: created
+  modified_key: modified
+
+
+# Publishing
+# ----------
+# Configuration related to publishing your site.
+
+publishing:
+  # If you want to clear the contents of your published directory prior to generating your site, set this to true.
+  clear_published_directory: true
+  
+  # If you want to parse PHP in your source files, executing any code in PHP tags (<?php ... ?>) and include the output in your published pages, set this to true.
+  parse_php: true
