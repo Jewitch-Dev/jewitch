@@ -9,7 +9,7 @@
 
 site:
   # The domain for your website
-  domain: www.your-site.net
+  domain: jewit.ch
   # The date that you registered the domain (used for RFC 4151 tag URIs)
   date_registered: 2024-10-07
 
