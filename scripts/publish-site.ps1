@@ -10,6 +10,13 @@ if ([string]::IsNullOrWhiteSpace($CommitMessage)) {
 }
 
 Write-Host "Building site..."
+Write-Host "Generating social share images..."
+& (Join-Path $PSScriptRoot "generate-social-images.ps1")
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "Social image generation failed. Nothing was committed or pushed."
+    exit $LASTEXITCODE
+}
+
 php neato.php
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Build failed. Nothing was committed or pushed."
