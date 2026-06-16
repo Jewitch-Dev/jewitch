@@ -1,7 +1,7 @@
 ﻿---
 title: Foundational Albums
 description: 15 foundational albums from my youth
-created: "2026-06-16 00:54:16"
+created: "2026-06-13 00:54:16"
 modified: "2026-06-16 01:52:13"
 tags: Music, Albums, High School
 template: post.html
