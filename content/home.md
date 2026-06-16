@@ -6,7 +6,7 @@ modified: "2026-06-15 23:02:24"
 template: home.html
 uuid: 17007495-212a-4610-bf8f-b9d7c890ff52
 ---
-{profile-picture}
+![Profile Picture](/assets/profile.png)
 
 # Shira
 
