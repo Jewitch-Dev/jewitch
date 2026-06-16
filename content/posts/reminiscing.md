@@ -1,9 +1,10 @@
 ---
 title: Reminiscing about youthful dreams
+description: A walk down memory lane
 date: 2026-06-12 17:17
-created: "2026-06-16 00:27:01"
-modified: "2026-06-16 00:27:01"
+created: "2026-06-16"
 uuid: c63525a6-679c-4cb2-9dd4-5eff8c722c20
+modified: "2026-06-16 00:36:18"
 ---
 # Reminiscing:
 ## A young kid from the Midwest's Dreams
