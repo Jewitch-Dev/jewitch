@@ -237,6 +237,25 @@ code {
     text-align: center;
 }
 
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    justify-content: center;
+    margin-top: .65rem;
+}
+
+.post-tag {
+    background: rgba(109, 40, 217, .16);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--accent-light);
+    display: inline-block;
+    font-size: .78rem;
+    line-height: 1.2;
+    padding: .25rem .6rem;
+}
+
 .back-link {
     display: inline-block;
     margin-top: 2rem;
@@ -268,6 +287,10 @@ code {
     margin: .25rem auto 0;
     max-width: 56ch;
     text-align: center;
+}
+
+.post-list .post-tags {
+    margin-top: .65rem;
 }
 
 .site-footer {

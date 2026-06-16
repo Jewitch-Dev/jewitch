@@ -36,11 +36,18 @@ foreach ($posts as $post) {
         $created = date('Y-m-d', filemtime($post));
     }
 
+    if (preg_match('/tags:\s*(.+)/i', $content, $matches)) {
+        $tags = array_filter(array_map('trim', explode(',', trim($matches[1], " \"'"))));
+    } else {
+        $tags = [];
+    }
+
     $filename = basename($post, '.md');
     $items[] = [
         'title' => $title,
         'description' => $description,
         'created' => $created,
+        'tags' => $tags,
         'filename' => $filename,
         'timestamp' => strtotime($created) ?: filemtime($post),
     ];
@@ -62,6 +69,14 @@ foreach ($items as $item) {
     echo "<time>{$created}</time>";
     if ($description !== '') {
         echo "<p>{$description}</p>";
+    }
+    if (count($item['tags']) > 0) {
+        echo "<div class='post-tags' aria-label='Tags'>";
+        foreach ($item['tags'] as $tag) {
+            $tag = htmlspecialchars($tag, ENT_QUOTES, 'UTF-8');
+            echo "<span class='post-tag'>{$tag}</span>";
+        }
+        echo "</div>";
     }
     echo "</li>";
 

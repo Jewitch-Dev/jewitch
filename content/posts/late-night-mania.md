@@ -2,7 +2,8 @@
 title: Late night mania
 description: The beast that haunts me
 created: "2026-06-16 00:03:23"
-modified: "2026-06-16 00:03:23"
+modified: "2026-06-16 01:52:13"
+tags: Mania, Creativity, Personal
 template: post.html
 uuid: ef41aa3b-c7cf-48b4-8e62-78a65af66f57
 ---
