@@ -8,7 +8,7 @@ uuid: 8921258a-f8d6-4bb2-9df1-62cef81ab34c
 ---
 # Foundational Albums
 
-![Lucky](/aassets/albums/lucky.jpg)
+![Lucky](/aassets/albums/Lucky Melissa Etheridge.jpg)
 
 ## Lucky
 ### Melissa Etheridge
@@ -17,7 +17,7 @@ This album hit me at exactly the right point in my life...
 
 ---
 
-![Trouble in Shangri-La](/aassets/albums/trouble-in-shangri-la.jpg)
+![Trouble in Shangri-La](/aassets/albums/Trouble in Shangri-La Stevie Nicks.jpg)
 
 ## Trouble in Shangri-La
 ### Stevie Nicks
