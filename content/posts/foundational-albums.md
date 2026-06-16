@@ -8,7 +8,7 @@ uuid: 8921258a-f8d6-4bb2-9df1-62cef81ab34c
 ---
 # Foundational Albums
 
-<img src="/assets/albums/Lucky.jpg" alt="Lucky">
+![Lucky](/assets/albums/Lucky.jpg)
 
 ## Lucky
 ### Melissa Etheridge
