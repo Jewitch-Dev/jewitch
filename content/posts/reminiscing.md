@@ -1,6 +1,5 @@
 ---
 title: Reminiscing about youthful dreams
-link: young-kid-midwest-dreams
 date: 2026-06-12 17:17
 created: "2026-06-16 00:27:01"
 modified: "2026-06-16 00:27:01"
