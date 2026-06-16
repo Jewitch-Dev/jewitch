@@ -7,11 +7,12 @@ uuid: 3fd9ddc2-3e9b-4842-9f59-cfef47ea30f0
 ---
 <h1>Blog</h1>
 
-<ul>
+<ul class="post-list">
 
 <?php
 
 $posts = glob('./content/posts/*.md');
+$items = [];
 
 foreach ($posts as $post) {
 
@@ -23,9 +24,46 @@ foreach ($posts as $post) {
         $title = basename($post, '.md');
     }
 
-    $filename = basename($post, '.md');
+    if (preg_match('/description:\s*(.+)/i', $content, $matches)) {
+        $description = trim($matches[1], " \"'");
+    } else {
+        $description = '';
+    }
 
-    echo "<li><a href='/posts/{$filename}/'>{$title}</a></li>";
+    if (preg_match('/created:\s*"?([^"\n]+)"?/i', $content, $matches)) {
+        $created = trim($matches[1]);
+    } else {
+        $created = date('Y-m-d', filemtime($post));
+    }
+
+    $filename = basename($post, '.md');
+    $items[] = [
+        'title' => $title,
+        'description' => $description,
+        'created' => $created,
+        'filename' => $filename,
+        'timestamp' => strtotime($created) ?: filemtime($post),
+    ];
+
+}
+
+usort($items, function ($a, $b) {
+    return $b['timestamp'] <=> $a['timestamp'];
+});
+
+foreach ($items as $item) {
+    $title = htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8');
+    $description = htmlspecialchars($item['description'], ENT_QUOTES, 'UTF-8');
+    $created = htmlspecialchars(date('F j, Y', $item['timestamp']), ENT_QUOTES, 'UTF-8');
+    $filename = rawurlencode($item['filename']);
+
+    echo "<li>";
+    echo "<a href='/posts/{$filename}/'>{$title}</a>";
+    echo "<time>{$created}</time>";
+    if ($description !== '') {
+        echo "<p>{$description}</p>";
+    }
+    echo "</li>";
 
 }
 

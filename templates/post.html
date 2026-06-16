@@ -5,103 +5,37 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-:root {
-    --bg: #111111;
-    --surface: #1a1a1a;
-    --text: #e5e5e5;
-    --muted: #a1a1aa;
-    --accent: #8b5cf6;
-    --accent-light: #c4b5fd;
-    --border: #3f3f46;
-}
-
-* { box-sizing: border-box; }
-
-body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: Georgia, serif;
-    line-height: 1.8;
-}
-
-.container {
-    max-width: 950px;
-    margin: 2rem auto;
-    padding: 4rem;
-    background: var(--surface);
-    border-radius: 32px;
-}
-
-a {
-    color: var(--accent-light);
-}
-
-header {
-    margin-bottom: 3rem;
-}
-
-.post-title {
-    margin-bottom: .5rem;
-}
-
-.post-meta {
-    color: var(--muted);
-    font-size: .95rem;
-    margin-bottom: 2rem;
-}
-
-.back-link {
-    margin-top: 3rem;
-    display: block;
-}
-
-footer {
-    margin-top: 4rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-}
-</style>
+<meta name="description" content="{description}">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
+
 <body>
+<div class="site">
+    <header class="site-header">
+        <h1 class="site-title"><a href="/">Jewitch</a></h1>
+        <div class="tagline">Musings of a Jewish Witch</div>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+            <a href="/about/">About</a>
+            <a href="/now/">Now</a>
+        </nav>
+    </header>
 
-<div class="container">
+    <div class="content">
+        <main>
+            <article>
+                <div class="post-meta">Published {created}</div>
+                {content}
+            </article>
 
-<header>
+            <a class="back-link" href="/blog/">Return to Blog</a>
+        </main>
+    </div>
 
-<div class="links">
-    <a href="/">Home</a>
-    <a href="/blog/">Blog</a>
-    <a href="/about/">About</a>
-    <a href="/now/">Now</a>
+    <footer class="site-footer">
+        Copyright 2026 Shira
+    </footer>
 </div>
-
-</header>
-
-<article>
-
-<h1 class="post-title">{title}</h1>
-
-<div class="post-meta">
-Published {created}
-</div>
-
-{content}
-
-</article>
-
-<a class="back-link" href="/">
-← Return to Archive
-</a>
-
-<footer>
-Musings of a Jewish Witch
-</footer>
-
-</div>
-
 </body>
 </html>

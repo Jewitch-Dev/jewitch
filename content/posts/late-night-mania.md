@@ -7,6 +7,7 @@ template: post.html
 uuid: ef41aa3b-c7cf-48b4-8e62-78a65af66f57
 ---
 # Late night mania
+## The Stalking Beast
 
  Here I sit, while the house sleeps, my mind is racing a million miles an hour with no hope of slowing down in sight. Mania. The beast that visits me in perpetuity. Never consistently. Existing almost at the edge of my periphery. I know she's there even if her presence is not fully manifest. Never knowing when her grand entrance will be made is exhausting. 
 

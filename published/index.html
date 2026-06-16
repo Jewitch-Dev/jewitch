@@ -5,81 +5,26 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-:root {
-    --bg: #111111;
-    --surface: #1a1a1a;
-    --text: #e5e5e5;
-    --muted: #a1a1aa;
-    --accent-light: #c4b5fd;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: system-ui, sans-serif;
-}
-
-.profile-card {
-    max-width: 950px;
-    margin: 2rem auto;
-    padding: 4rem;
-    background: var(--surface);
-    border-radius: 32px;
-    text-align: center;
-}
-
-.profile-card img {
-    width: 260px;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-}
-
-.profile-card h1 {
-    font-size: 4rem;
-    margin-bottom: .25rem;
-}
-
-.profile-card h3 {
-    color: var(--muted);
-    font-weight: normal;
-    margin-top: 0;
-}
-
-.profile-card p {
-    font-size: 1.4rem;
-    line-height: 1.7;
-}
-
-.links {
-    margin-top: 2rem;
-}
-
-.links a {
-    color: var(--accent-light);
-    text-decoration: none;
-    margin: 0 1rem;
-    font-size: 1.2rem;
-}
-</style>
+<meta name="description" content="Musings of a Jewish Witch">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 
 <body>
+<div class="site">
+    <header class="site-header">
+        <h1 class="site-title"><a href="/">Jewitch</a></h1>
+        <div class="tagline">Musings of a Jewish Witch</div>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+            <a href="/about/">About</a>
+            <a href="/now/">Now</a>
+        </nav>
+    </header>
 
-<div class="profile-card">
-
-<div class="links">
-    <a href="/blog/">Blog</a>
-    <a href="/about/">About</a>
-    <a href="/now/">Now</a>
-</div>
-<p><img src="/assets/profile.png" alt="Profile Picture" /></p>
+    <div class="content home-content">
+        <main>
+            <p><img src="/assets/profile.png" alt="Profile Picture" /></p>
 <h1>Shira</h1>
 <p>| Pronouns: She/Her
 | Occupation: Jewitch
@@ -92,7 +37,12 @@ body {
 <ul>
 <li><a href="https://jewit.ch">My Blog</a></li>
 </ul>
-</div>
+        </main>
+    </div>
 
+    <footer class="site-footer">
+        Copyright 2026 Shira
+    </footer>
+</div>
 </body>
 </html>
