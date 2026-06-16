@@ -111,6 +111,58 @@ main img:first-child {
     max-width: min(260px, 100%);
 }
 
+.album-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.album-card {
+    background: rgba(21, 16, 31, .72);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.album-card img,
+main .album-card img:first-child {
+    aspect-ratio: 1;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    height: auto;
+    margin: 0;
+    max-width: none;
+    object-fit: cover;
+    width: 100%;
+}
+
+.album-card figcaption {
+    padding: .85rem .75rem 1rem;
+}
+
+.album-card strong,
+.album-card span {
+    display: block;
+}
+
+.album-card strong {
+    color: var(--accent-light);
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+
+.album-card span {
+    color: var(--muted);
+    font-size: .9rem;
+    line-height: 1.35;
+    margin-top: .25rem;
+}
+
 h1,
 h2,
 h3 {
