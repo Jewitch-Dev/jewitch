@@ -3,6 +3,7 @@ title: Jewitch
 description: Musings of a Jewish Witch
 created: "2026-06-15 23:02:24"
 modified: "2026-06-15 23:02:24"
+template: home.html
 uuid: 17007495-212a-4610-bf8f-b9d7c890ff52
 ---
 <h1>Jewitch</h1>

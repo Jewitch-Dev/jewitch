@@ -12,9 +12,7 @@
     --surface: #1a1a1a;
     --text: #e5e5e5;
     --muted: #a1a1aa;
-    --accent: #8b5cf6;
     --accent-light: #c4b5fd;
-    --border: #3f3f46;
 }
 
 * {
@@ -25,124 +23,67 @@ body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: Georgia, serif;
-    line-height: 1.8;
+    font-family: system-ui, sans-serif;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-header {
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-}
-
-.site-title {
-    font-size: 2rem;
-    margin: 0;
-}
-
-.site-title a {
-    color: var(--accent-light);
-    text-decoration: none;
-}
-
-.tagline {
-    color: var(--muted);
-    margin-top: .25rem;
-}
-
-nav {
-    margin-top: 1rem;
-}
-
-nav a {
-    color: var(--accent-light);
-    text-decoration: none;
-    margin-right: 1rem;
-}
-
-nav a:hover {
-    color: white;
-}
-
-main {
+.profile-card {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 4rem;
     background: var(--surface);
-    padding: 2rem;
-    border-radius: 10px;
-}
-
-h1, h2, h3 {
-    color: var(--accent-light);
-}
-
-a {
-    color: var(--accent-light);
-}
-
-a:hover {
-    color: white;
-}
-
-footer {
-    margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
+    border-radius: 32px;
     text-align: center;
 }
 
-code {
-    background: #27272a;
-    padding: .15rem .35rem;
-    border-radius: 4px;
+.profile-card img {
+    width: 260px;
+    border-radius: 12px;
+    margin-bottom: 2rem;
 }
 
-blockquote {
-    border-left: 4px solid var(--accent);
-    margin-left: 0;
-    padding-left: 1rem;
+.profile-card h1 {
+    font-size: 4rem;
+    margin-bottom: .25rem;
+}
+
+.profile-card h3 {
     color: var(--muted);
+    font-weight: normal;
+    margin-top: 0;
+}
+
+.profile-card p {
+    font-size: 1.4rem;
+    line-height: 1.7;
+}
+
+.links {
+    margin-top: 2rem;
+}
+
+.links a {
+    color: var(--accent-light);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1.2rem;
 }
 </style>
-
 </head>
+
 <body>
 
-<div class="container">
-
-<header>
-    <h1 class="site-title">
-        <a href="/">Jewitch</a>
-    </h1>
-
-    <div class="tagline">
-        Musings of a Jewish Witch
-    </div>
-
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/now/">Now</a>
-        <a href="/blog/">Blog</a>
-    </nav>
-</header>
-
-<main>
+<div class="profile-card">
 <h1>Jewitch</h1>
 <p>
 Musings of a Jewish Witch.
 </p>
 <h2>2026</h2><ul><li><a href='/posts/reminiscing/'>Reminiscing about youthful dreams</a></li><li><a href='/posts/welcome-to-jewitch/'>Welcome to Jewitch</a></li></ul>
-</main>
 
-<footer>
-    © 2026 Shira
-</footer>
+<div class="links">
+    <a href="/blog/">Blog</a>
+    <a href="/about/">About</a>
+    <a href="/now/">Now</a>
+</div>
 
 </div>
 
