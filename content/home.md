@@ -21,6 +21,3 @@ Greetings! I am a 37 year old Disabled Jewish Witch. I am an odd mix. I am a Lib
 In addition to the above I LOVE Music. My favorite artist of all time is Stevie Nicks. But I also love: Tracy Chapman, Sarah McLachlan, Alanis Morisette, Courtney Love (and Hole), Melissa Etheridge, Sarah Brightman, Madonna, Cher, Cyndi Lauper and many many many more. 
 
 When I am not listening to music or rewatching The West Wing for the millionth time, you will find me engaging in Final Fantasy 11 or 14, or enjoying a nice Manicotti before indulging in a nap.
---- Profile Items ---
-
-- [My Blog](https://jewit.ch)
