@@ -6,57 +6,21 @@ modified: "2026-06-15 23:02:24"
 template: home.html
 uuid: 17007495-212a-4610-bf8f-b9d7c890ff52
 ---
-<h1>Jewitch</h1>
+{profile-picture}
 
-<p>
-Musings of a Jewish Witch.
-</p>
+# Shira
 
-<?php
+| Pronouns: She/Her
+| Occupation: Jewitch
+| Location: Planet Earth
 
-$posts = glob('./content/posts/*.md');
+--- Bio ---
 
-$years = [];
+Greetings! I am a 37 year old Disabled Jewish Witch. I am an odd mix. I am a Libertarian Socialist. I am Pro: LGBT, BIPOC, Disability Rights, Womens Rights, Freedom. I am Anti: Bigotry, Zionism, Death Penalty, War and Capitalism in its current immoral iteration. 
 
-foreach ($posts as $post) {
+In addition to the above I LOVE Music. My favorite artist of all time is Stevie Nicks. But I also love: Tracy Chapman, Sarah McLachlan, Alanis Morisette, Courtney Love (and Hole), Melissa Etheridge, Sarah Brightman, Madonna, Cher, Cyndi Lauper and many many many more. 
 
-    $content = file_get_contents($post);
+When I am not listening to music or rewatching The West Wing for the millionth time, you will find me engaging in Final Fantasy 11 or 14, or enjoying a nice Manicotti before indulging in a nap.
+--- Profile Items ---
 
-    $title = basename($post, '.md');
-    $created = date('Y-m-d', filemtime($post));
-
-    if (preg_match('/title:\s*(.+)/i', $content, $matches)) {
-        $title = trim($matches[1]);
-    }
-
-    if (preg_match('/created:\s*([0-9]{4})-([0-9]{2})-([0-9]{2})/i', $content, $matches)) {
-        $created = "{$matches[1]}-{$matches[2]}-{$matches[3]}";
-    }
-
-    $year = substr($created, 0, 4);
-
-    $years[$year][] = [
-        'title' => $title,
-        'slug' => basename($post, '.md'),
-        'created' => $created
-    ];
-}
-
-krsort($years);
-
-foreach ($years as $year => $entries) {
-
-    usort($entries, function($a, $b) {
-        return strcmp($b['created'], $a['created']);
-    });
-
-    echo "<h2>{$year}</h2>";
-    echo "<ul>";
-
-    foreach ($entries as $entry) {
-        echo "<li><a href='/posts/{$entry['slug']}/'>{$entry['title']}</a></li>";
-    }
-
-    echo "</ul>";
-}
-?>
+- [My Blog](https://jewit.ch)
