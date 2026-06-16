@@ -1,0 +1,9 @@
+# rsync Power-Up Configuration
+
+# rsync -avz -e 'ssh -p 22' ./public/ user@server:/var/www/site/
+
+# The rsync remote to use (user@host:/path)
+rsync_remote: user@remote_host:/path/to/destination/
+
+# The SSH port that rsync should use
+rsync_port: 22

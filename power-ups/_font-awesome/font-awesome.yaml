@@ -1,0 +1,7 @@
+# Font Awesome Power-Up Configuration
+
+# Icon size, determined by height for uniformity
+height: 1em
+
+# Full-width icon size (used with the [fw] flag), determined by width for uniformity
+fw-width: 1.3em

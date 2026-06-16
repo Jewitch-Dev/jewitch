@@ -1,0 +1,10 @@
+<entry>
+	<title>{title}</title>
+	<id>{id}</id>
+	<link href="{link}"/>
+	<published>{published}</published>
+	<updated>{updated}</updated>
+	<content type="xhtml">
+		<div xmlns="http://www.w3.org/1999/xhtml">{content}</div>
+	</content>
+</entry>

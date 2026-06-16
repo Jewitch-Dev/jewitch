@@ -1,0 +1,10 @@
+# now.garden Power-Up Configuration
+
+# omg.lol API key (located at the bottom of https://home.omg.lol/account)
+key: 7865aa7b4b934f94debfd3db1d8d6f6c
+
+# omg.lol address
+address: adam
+
+# /now page content item
+page: now.md

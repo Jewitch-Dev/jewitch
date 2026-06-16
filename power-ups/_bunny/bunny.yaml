@@ -1,0 +1,32 @@
+# Bunny Power-Up Configuration
+
+# Need a Bunny account?
+# Support Neato by signing up with this URL!
+# https://bunny.net?ref=78iezsfq3y
+
+# To get your storage zone name, sign into Bunny, click Storage on the left, and then click on your storage zone. The name of the zone appears at the top of the page
+storage_zone_name: www-your-site-dot-net
+
+# You'll find this password on the "FTP & API access" of your storage zone
+storage_zone_password: 000000-0000-0000-000000000000-0000-0000
+
+# This appears on the same page
+storage_host: storage.bunnycdn.com
+
+# To get your account API key, visit https://dash.bunny.net/account/api-key
+account_api_key: 000000-0000-0000-0000-0000000000
+
+# This is the numeric ID of your pull zone, which you can get from your browser's address bar when you visit the pull zone on the Bunny site
+pull_zone_id: 1234567
+
+# Set to true to simulate uploading (instead of actually uploading)
+# Default: false
+dry_run: false
+
+# Set to true if you don't want to upload any hidden files
+# Default: false
+skip_hidden_files: false
+
+# Set to true if you want to purge the Bunny cache for your pull zone (which is generally a good idea after uploading new files)
+# Default: true
+purge_cdn: true

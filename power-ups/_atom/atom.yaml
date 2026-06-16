@@ -1,0 +1,17 @@
+# Atom Power-Up Configuration
+
+# Pages in the specified path will be included in the feed, unless specifically excluded via a directive below.
+path: /blog/
+
+# Pages with these properties can be included or excluded from the feed.
+properties:
+  include: feed_include
+  exclude: feed_exclude
+
+# Feed metadata. These values will be swapped in the template variables within the .xml files.
+meta:
+  title: Your Blog Title
+  subtitle: A clever subtitle
+  feed_url: https://www.example.net/feed.xml
+  site_url: https://www.example.net/
+  author_name: Your Name
