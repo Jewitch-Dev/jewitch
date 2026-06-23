@@ -6,11 +6,13 @@
     "build": "tinacms build && php neato.php"
   },
   "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "tinacms": "^3.9.3"
   },
   "devDependencies": {
     "@types/node": "^24.0.3",
-    "@tinacms/cli": "^1.11.3",
+    "@tinacms/cli": "^2.5.1",
     "typescript": "^5.8.3"
   }
 }
