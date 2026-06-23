@@ -1,0 +1,38 @@
+name: Build Neato site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "content/posts/**"
+      - "content/**"
+      - "templates/**"
+      - "neato.php"
+      - "neato.yaml"
+      - ".pages.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+
+      - name: Build site with Neato
+        run: php neato.php
+
+      - name: Commit generated site
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Build Neato site"
+          file_pattern: "published/**"
