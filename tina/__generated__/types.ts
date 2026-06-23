@@ -187,14 +187,6 @@ export type StringFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type DatetimeFilter = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
 export type RichTextFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
   eq?: InputMaybe<Scalars['String']['input']>;
@@ -204,8 +196,8 @@ export type RichTextFilter = {
 export type PostsFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
-  created?: InputMaybe<DatetimeFilter>;
-  modified?: InputMaybe<DatetimeFilter>;
+  created?: InputMaybe<StringFilter>;
+  modified?: InputMaybe<StringFilter>;
   tags?: InputMaybe<StringFilter>;
   template?: InputMaybe<StringFilter>;
   uuid?: InputMaybe<StringFilter>;

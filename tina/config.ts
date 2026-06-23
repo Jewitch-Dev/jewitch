@@ -56,7 +56,7 @@ export default defineConfig({
             },
           },
           {
-            type: "datetime",
+            type: "string",
             name: "created",
             label: "Created",
             required: true,
@@ -66,7 +66,7 @@ export default defineConfig({
             },
           },
           {
-            type: "datetime",
+            type: "string",
             name: "modified",
             label: "Modified",
             ui: {
