@@ -40,6 +40,9 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Build site with Neato
+        run: npm run neato:build
+
       - name: Build Tina admin
         shell: bash
         run: |
@@ -50,9 +53,6 @@ jobs:
           npm run tina:build -- --skip-cloud-checks
         env:
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-
-      - name: Build site with Neato
-        run: npm run neato:build
 
       - name: Commit generated site
         uses: stefanzweifel/git-auto-commit-action@v5
