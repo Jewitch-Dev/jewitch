@@ -61,5 +61,5 @@ jobs:
       - name: Commit generated site
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Build Neato site"
+          commit_message: "Build Neato site [skip ci]"
           file_pattern: "published/**"
