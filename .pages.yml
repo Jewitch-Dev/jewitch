@@ -6,7 +6,7 @@ content:
   - name: posts
     label: Posts
     type: collection
-    path: published/posts
+    path: content/posts
     filename: "{year}-{month}-{day}-{title}.md"
     fields:
       - name: title
