@@ -418,8 +418,20 @@ code {
     padding: .15rem .45rem;
 }
 
-.post-body > h1:first-child {
+.post-body > h1:first-child:not(:has(img)) {
     display: none;
+}
+
+.post-body h1:has(img) {
+    margin: 0 0 2rem;
+    text-align: center;
+}
+
+.post-body h1:has(img) img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: min(100%, 520px);
 }
 
 .post-body {
