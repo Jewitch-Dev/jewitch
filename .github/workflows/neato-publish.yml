@@ -1,10 +1,12 @@
 name: Build Neato site
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
+      - ".github/workflows/neato-publish.yml"
       - "content/posts/**"
       - "content/**"
       - "templates/**"
