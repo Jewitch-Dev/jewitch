@@ -54,6 +54,7 @@ jobs:
             exit 0
           fi
           npm run tina:build -- --skip-cloud-checks
+          rm -f published/admin/.gitignore
         env:
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
 
