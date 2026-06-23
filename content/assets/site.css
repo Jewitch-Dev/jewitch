@@ -327,6 +327,131 @@ code {
     color: var(--muted);
 }
 
+.post-page {
+    background:
+        radial-gradient(circle at top, rgba(109, 40, 217, .12), transparent 28rem),
+        linear-gradient(180deg, #161318, #0b090f 55%, #07060a);
+}
+
+.post-page .site {
+    width: min(100% - 2rem, 920px);
+}
+
+.post-page .site-header {
+    border-color: #3a3440;
+    border-radius: 0;
+    background: rgba(18, 16, 21, .9);
+    margin-bottom: 2rem;
+}
+
+.post-page .content {
+    border: 0;
+    background: transparent;
+    padding: 0;
+}
+
+.post-page main {
+    max-width: 76ch;
+}
+
+.post-article {
+    border: 1px solid #3a3440;
+    background: rgba(18, 16, 21, .92);
+    color: #d6d1dc;
+    font-family: Consolas, "Liberation Mono", "Courier New", monospace;
+    padding: clamp(2rem, 6vw, 4rem);
+    text-align: left;
+}
+
+.post-heading {
+    margin-bottom: 1rem;
+}
+
+.post-heading h1 {
+    color: #d8d3de;
+    font-family: Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+    letter-spacing: .01em;
+    line-height: 1.18;
+    margin: 0;
+    text-align: left;
+}
+
+.post-heading p {
+    color: #aaa3b3;
+    font-size: 1rem;
+    margin: 1rem 0 0;
+}
+
+.post-page .post-meta {
+    align-items: center;
+    border: 0;
+    color: #aaa3b3;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .9rem;
+    gap: .75rem 1rem;
+    justify-content: flex-start;
+    margin: 0 0 2rem;
+    padding: 0;
+    text-align: left;
+}
+
+.post-page .post-meta > span::before {
+    content: "▣";
+    color: var(--accent-light);
+    font-size: .75rem;
+    margin-right: .45rem;
+}
+
+.post-page .post-tags {
+    display: contents;
+    margin: 0;
+}
+
+.post-page .post-tag {
+    background: transparent;
+    border: 1px solid #4a4254;
+    border-radius: 0;
+    color: #c4a7ff;
+    font-size: .75rem;
+    padding: .15rem .45rem;
+}
+
+.post-body > h1:first-child {
+    display: none;
+}
+
+.post-body {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.post-body h2,
+.post-body h3 {
+    color: #d8d3de;
+    font-family: Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.post-body p,
+.post-body ul,
+.post-body ol {
+    color: #d6d1dc;
+}
+
+.post-body a {
+    color: #d8d3de;
+}
+
+.post-page .back-link {
+    border: 1px solid #3a3440;
+    color: #c4a7ff;
+    font-family: Consolas, "Liberation Mono", "Courier New", monospace;
+    margin-top: 1rem;
+    padding: .35rem .65rem;
+    text-decoration: none;
+}
+
 @media (max-width: 640px) {
     body {
         font-size: 17px;
@@ -335,5 +460,13 @@ code {
     .site {
         width: min(100% - 1rem, 960px);
         padding-top: .5rem;
+    }
+
+    .post-page .site {
+        width: min(100% - 1rem, 920px);
+    }
+
+    .post-article {
+        padding: 1.25rem;
     }
 }

@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 
-<body>
+<body class="post-page">
 <a class="visually-hidden" rel="me" href="https://social.lol/@jewitch">Mastodon</a>
 <div class="site">
     <header class="site-header">
@@ -41,14 +41,22 @@
         </nav>
     </header>
 
-    <div class="content">
+    <div class="content post-content">
         <main>
-            <article>
+            <article class="post-article">
+                <header class="post-heading">
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </header>
+
                 <div class="post-meta">
                     <span>Published {created}</span>
                     {tags_html}
                 </div>
-                {content}
+
+                <div class="post-body">
+                    {content}
+                </div>
             </article>
 
             <a class="back-link" href="/blog/">Return to Blog</a>
