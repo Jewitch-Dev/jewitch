@@ -1,0 +1,84 @@
+media:
+  input: Published/Media
+  output: /Media
+
+content:
+  - name: draft_posts
+    label: Draft Posts
+    type: collection
+    path: Content/posts
+    filename:
+      template: "{year}-{month}-{day}-{title}.md"
+      field: create
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+      - name: created
+        label: Created
+        type: date
+        options:
+          time: true
+      - name: modified
+        label: Modified
+        type: date
+        options:
+          time: true
+      - name: tags
+        label: Tags
+        type: string
+        description: "Comma-separated, like: Mania, Creativity, Personal"
+      - name: template
+        type: string
+        hidden: true
+        default: post.html
+      - name: uuid
+        label: UUID
+        type: uuid
+      - name: body
+        label: Post
+        type: rich-text
+
+  - name: published_posts
+    label: Published Posts
+    type: collection
+    path: Published/Posts
+    filename:
+      template: "{year}-{month}-{day}-{title}.md"
+      field: create
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+      - name: created
+        label: Created
+        type: date
+        options:
+          time: true
+      - name: modified
+        label: Modified
+        type: date
+        options:
+          time: true
+      - name: tags
+        label: Tags
+        type: string
+        description: "Comma-separated, like: Mania, Creativity, Personal"
+      - name: template
+        type: string
+        hidden: true
+        default: post.html
+      - name: uuid
+        label: UUID
+        type: uuid
+      - name: body
+        label: Post
+        type: rich-text
