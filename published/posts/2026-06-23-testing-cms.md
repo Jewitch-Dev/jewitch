@@ -11,7 +11,5 @@ uuid: 366dff0c-9414-40ef-9e04-4dc335e502f5
 
 ## Part 1
 
-
-
 I am here testing a new CMS. Not as pretty as I would like but it could be doable if a CMS doesn't get baked into Neato at some point
 
