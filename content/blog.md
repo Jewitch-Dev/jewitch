@@ -6,8 +6,7 @@ modified: "2026-06-15 22:42:41"
 uuid: 3fd9ddc2-3e9b-4842-9f59-cfef47ea30f0
 ---
 <h1>Blog</h1>
-
-<ul class="post-list">
+<p class="blog-intro">A personal blog. Random brain droppings, late-night projects, music, memory, and whatever else wanders through.</p>
 
 <?php
 
@@ -58,30 +57,35 @@ usort($items, function ($a, $b) {
     return $b['timestamp'] <=> $a['timestamp'];
 });
 
+$current_year = null;
+
 foreach ($items as $item) {
     $title = htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8');
-    $description = htmlspecialchars($item['description'], ENT_QUOTES, 'UTF-8');
-    $created = htmlspecialchars(date('F j, Y', $item['timestamp']), ENT_QUOTES, 'UTF-8');
+    $year = date('Y', $item['timestamp']);
+    $date = htmlspecialchars(strtoupper(date('M j', $item['timestamp'])), ENT_QUOTES, 'UTF-8');
     $filename = rawurlencode($item['filename']);
 
-    echo "<li>";
-    echo "<a href='/posts/{$filename}/'>{$title}</a>";
-    echo "<time>{$created}</time>";
-    if ($description !== '') {
-        echo "<p>{$description}</p>";
-    }
-    if (count($item['tags']) > 0) {
-        echo "<div class='post-tags' aria-label='Tags'>";
-        foreach ($item['tags'] as $tag) {
-            $tag = htmlspecialchars($tag, ENT_QUOTES, 'UTF-8');
-            echo "<span class='post-tag'>{$tag}</span>";
+    if ($year !== $current_year) {
+        if ($current_year !== null) {
+            echo "</ul>";
         }
-        echo "</div>";
+
+        $current_year = $year;
+        echo "<h2 class='archive-year'>{$year}</h2>";
+        echo "<ul class='post-list archive-list'>";
     }
+
+    echo "<li class='archive-item'>";
+    echo "<a class='archive-link' href='/posts/{$filename}/'>";
+    echo "<time datetime='" . htmlspecialchars(date('Y-m-d', $item['timestamp']), ENT_QUOTES, 'UTF-8') . "'>{$date}</time>";
+    echo "<span>{$title}</span>";
+    echo "</a>";
     echo "</li>";
 
 }
 
-?>
+if ($current_year !== null) {
+    echo "</ul>";
+}
 
-</ul>
+?>
