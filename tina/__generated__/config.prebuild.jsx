@@ -48,23 +48,15 @@ var config_default = defineConfig({
             }
           },
           {
-            type: "datetime",
+            type: "string",
             name: "created",
             label: "Created",
-            required: true,
-            ui: {
-              dateFormat: "YYYY-MM-DD",
-              timeFormat: "HH:mm:ss"
-            }
+            required: true
           },
           {
-            type: "datetime",
+            type: "string",
             name: "modified",
-            label: "Modified",
-            ui: {
-              dateFormat: "YYYY-MM-DD",
-              timeFormat: "HH:mm:ss"
-            }
+            label: "Modified"
           },
           {
             type: "string",

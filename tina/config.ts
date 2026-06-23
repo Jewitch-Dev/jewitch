@@ -60,19 +60,11 @@ export default defineConfig({
             name: "created",
             label: "Created",
             required: true,
-            ui: {
-              dateFormat: "YYYY-MM-DD",
-              timeFormat: "HH:mm:ss",
-            },
           },
           {
             type: "string",
             name: "modified",
             label: "Modified",
-            ui: {
-              dateFormat: "YYYY-MM-DD",
-              timeFormat: "HH:mm:ss",
-            },
           },
           {
             type: "string",

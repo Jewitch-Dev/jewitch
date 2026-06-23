@@ -108,14 +108,6 @@ input StringFilter {
   in: [String]
 }
 
-input DatetimeFilter {
-  after: String
-  before: String
-  eq: String
-  exists: Boolean
-  in: [String]
-}
-
 input RichTextFilter {
   startsWith: String
   eq: String
@@ -125,8 +117,8 @@ input RichTextFilter {
 input PostsFilter {
   title: StringFilter
   description: StringFilter
-  created: DatetimeFilter
-  modified: DatetimeFilter
+  created: StringFilter
+  modified: StringFilter
   tags: StringFilter
   template: StringFilter
   uuid: StringFilter
