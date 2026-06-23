@@ -1,12 +1,12 @@
 media:
-  input: Published/Media
-  output: /Media
+  input: published/media
+  output: /media
 
 content:
   - name: posts
     label: Posts
     type: collection
-    path: Published/Posts
+    path: published/posts
     filename: "{year}-{month}-{day}-{title}.md"
     fields:
       - name: title
