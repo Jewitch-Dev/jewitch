@@ -14,7 +14,6 @@ on:
       - "neato.yaml"
       - "package.json"
       - "package-lock.json"
-      - "published/admin/**"
       - "tina/**"
       - ".pages.yml"
 
@@ -61,5 +60,5 @@ jobs:
       - name: Commit generated site
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Build Neato site [skip ci]"
+          commit_message: "Build Neato site"
           file_pattern: "published/**"
