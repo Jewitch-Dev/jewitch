@@ -14,6 +14,7 @@ on:
       - "neato.yaml"
       - "package.json"
       - "package-lock.json"
+      - "scripts/**"
       - "tina/**"
       - ".pages.yml"
 
@@ -32,6 +33,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.3"
+          extensions: yaml
 
       - name: Set up Node
         uses: actions/setup-node@v4
