@@ -1,35 +1,36 @@
 ---
 title: Now
-description: A living little snapshot of what has my attention, heart, energy, and stubborn curiosity right now.
+description: A brief glimpse into the parts that make up the whole we call the Jewitch!
 created: "2026-06-15 22:35:48"
 modified: "2026-06-24 02:45:00"
 updated: June 2026
 uuid: 0b49af2c-9ad7-42ff-8caf-42a9a7952943
 sections:
   - heading: In this season
-    summary: "I am tending to the soft and strange parts of life: disability, politics, Jewishness, witchcraft, music, rest, grief, play, and the difficult work of staying human in a world that keeps asking people to become machines."
+    summary: "Unpacking my identity one piece at a time, and cleaning up a decade and a half of neglect."
     items:
-      - Making Jewitch feel more like a home than a website
+      - Building Jewit.ch up the way I truly envision. Learning new skills along the way.
       - Letting rest count as real work
-      - Writing from the messy middle instead of waiting for perfect clarity
+      - Writing from where I am now post stroke. Embracing the rough edges and accepting my imperfections.
   - heading: Playing
-    summary: Comfort worlds, familiar rhythms, and a little digital wandering.
+    summary: What digital worlds am I calling home at the moment
     items:
       - Final Fantasy XI
       - Final Fantasy XIV
+      - Guild Wars (Its on Mobile now! I can get lost in Tyria on the go now!)
   - heading: Building
-    summary: Slowly shaping the web into something more personal, cozy, useful, and mine.
+    summary: My contributions to de-shitifying the Net
     items:
       - Jewitch, this small corner of the internet
-      - Better archives and more intentional pages
-      - A site that feels alive without being exhausting to maintain
+      - Seeing what can be integrated into the Neato Alpha! 
   - heading: Watching
     summary: Revisiting stories that can sit beside me while I think.
     items:
       - The Closer
-      - The West Wing, probably forever
+      - The West Wing (the 5,000th rewatch)
+      - The X-Files (Attempting another rewatch)
   - heading: Listening To
-    summary: The songs, voices, and emotional weather that keep me company.
+    summary: The voices that are currently guiding me through the wastelands
     albums:
       - title: Trouble in Shangri-La
         artist: Stevie Nicks
