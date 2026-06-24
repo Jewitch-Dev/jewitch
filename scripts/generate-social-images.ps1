@@ -135,7 +135,8 @@ function New-SocialImage {
     $graphics.DrawString("jewit.ch", $domainFont, $mutedBrush, 120, 548)
 
     $profileBytes = if (Test-Path -LiteralPath $profilePath) {
-        Get-Content -LiteralPath $profilePath -Encoding Byte -TotalCount 12
+        $bytes = [System.IO.File]::ReadAllBytes($profilePath)
+        $bytes[0..([Math]::Min(11, $bytes.Length - 1))]
     } else {
         @()
     }
