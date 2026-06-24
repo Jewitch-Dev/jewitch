@@ -1,4 +1,4 @@
-﻿---
+---
 title: Late night mania
 description: The beast that haunts me
 created: "2026-06-16 00:03:23"

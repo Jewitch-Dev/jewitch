@@ -1,0 +1,24 @@
+---
+title: "Skeets and Toots: The Future of Social Media"
+description: "Let me preface this by saying: I’m not a tech guru with a wall of certifications and fancy degrees. I’m an Elder Millennial who’s been using computers since I w"
+created: "2025-01-13 00:00:00"
+modified: "2025-01-13 00:00:00"
+tags: "BlueSky, Mastodon, Social Media, Federation"
+template: post.html
+uuid: 3c0a42b6-dda8-4b0e-8407-cfbf26a824ae
+---
+> ## _Let me preface this by saying: I’m not a tech guru with a wall of certifications and fancy degrees. I’m an Elder Millennial who’s been using computers since I was six and exploring the internet since I was seven. My experience spans IRC (praise mIRC), ICQ, forums, chat rooms, instant messengers, LiveJournal, and a slew of other platforms. What follows is the perspective of a seasoned and experienced average user. Please, don’t crucify me!_
+
+I’ve been around the internet for nearly three decades—24 years, to be exact. During that time, I’ve witnessed countless changes. The current uproar over social media—like the mess surrounding Twitter (I refuse to call it by its dumb new name) and Facebook—was, in some ways, inevitable. Nothing stays the same online. Yet these platforms have somehow hooked people so deeply that, even as they become a detriment to humanity, some users just can’t let go.
+
+Platforms like Mastodon and Bluesky have emerged as alternatives, aiming to steer social media back to a better place—a time before Big Tech and soulless corporations infiltrated nearly every corner of the web. They aren’t alone in this effort; they represent a broader movement toward decentralized social media, built on new protocols. I won’t delve into the technical aspects here. While I’m no stranger to tech, I’m still wrapping my head around how federation works and don’t claim to be an expert.
+
+If you spend time on Bluesky or Mastodon, you’ll notice each platform’s users championing their own as the superior option. But I think this tribalism misses the point entirely. The true promise of both platforms lies in putting the power of the internet back in the hands of the average user: reclaiming ownership of our data, safeguarding our online identities, and fighting censorship from tech billionaires and oligarchs. Each platform has its strengths and weaknesses, and both are valid. Instead of competing, they should coexist and complement one another. After all, we’ve seen what monopolies can do. We don’t need another one.
+
+Federation and decentralization are powerful remedies to our current internet woes. So why the friction between these communities? Speaking from personal experience, my initial hesitation with Mastodon stemmed from its usability. While it has become more user-friendly over time, joining Mastodon was initially more complicated than signing up for Bluesky. Bluesky’s straightforward process—just an email and password—mirrors familiar experiences like Twitter and Facebook, making it feel seamless. Mastodon, by contrast, has a learning curve with its “instances” and decentralized structure, which can be confusing for new users. That said, Mastodon is improving in this regard.
+
+Critics of Bluesky often highlight its origins—developed by an ex-Twitter head (and yes, correct me if I’m misremembering the details). They worry that it’s vulnerable to exploitation by deep-pocketed tech bros, potentially turning it into another tool of corporate greed. Mastodon, on the other hand, has taken explicit steps to “billionaire-proof” its platform, cementing its status as a beacon of hope for decentralized social media. (And as of the past few days, there’s a movement to do much the same to BlueSky)
+
+The conversation, however, shouldn’t be about which platform is better. It should be about how we collectively wrest control of the internet from the oppressive elite and return autonomy to the average user. Beyond social media, we need to address broader issues: What are we going to do about Amazon, Google, and AI companies like OpenAI? While Facebook and Twitter are cesspools, companies like Amazon, Google, OpenAI and Apple are just as harmful, with labor practices, monopolistic behavior, and policy rollbacks that disproportionately harm marginalized groups.
+
+To create lasting solutions, we need alternatives to all these monopolistic giants. But we won’t achieve this by squabbling among ourselves. Mastodon and Bluesky communities need to acknowledge that both platforms have room for improvement and work together. The good news is that both platforms have shown a willingness to listen to user feedback, implementing changes based on community input. Let’s push for continued improvement while recognizing our shared goals: decentralization and federation. These are noble and necessary endeavors, and by uniting rather than dividing, we stand a much better chance of achieving them.

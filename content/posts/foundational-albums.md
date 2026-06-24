@@ -1,4 +1,4 @@
-﻿---
+---
 title: Foundational Albums
 description: 15 foundational albums from my youth
 created: "2026-06-13 00:54:16"
