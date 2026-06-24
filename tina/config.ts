@@ -28,7 +28,7 @@ export default defineConfig({
         path: "content",
         format: "md",
         match: {
-          include: "*.md",
+          include: "*",
           exclude: "posts/**",
         },
         ui: {
