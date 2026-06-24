@@ -543,6 +543,7 @@ main .post-list.archive-list {
 }
 
 .now-sections {
+    align-items: start;
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -636,7 +637,7 @@ main .post-list.archive-list {
 .now-album-grid {
     display: grid;
     gap: .85rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .now-album-card {
