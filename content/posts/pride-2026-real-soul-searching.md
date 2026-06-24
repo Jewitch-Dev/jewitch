@@ -1,10 +1,11 @@
 ---
 title: 'Pride 2026: Real soul searching'
 created: 6/23/2026
-tags: 'personal, opinion, pride'
+tags: personal, opinion, pride
 template: post.html
+modified: "2026-06-23 23:51:57"
+uuid: b29f0586-90b9-4c46-831b-2335bf196872
 ---
-
 ## Happy Pride Month
 
 Pride month. A time for celebration in the LGBTQ Community. A time set aside to remember those who came before us and made this all possible, but a time to also be present and celebrate our existence with one another. But I feel we should also look at the struggles we are still facing, especially this pride.
