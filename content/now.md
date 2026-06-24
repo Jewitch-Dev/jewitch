@@ -40,6 +40,9 @@ sections:
       - title: Fumbling Towards Ecstasy
         artist: Sarah McLachlan
         image: /assets/albums/Fumbling Towards Ecstasy Sarah McLachlan.jpg
+      - title: Surfacing
+        artist: Sarah McLachlan
+        image: /assets/albums/Surfacing Sarah McLachlan.jpg
 ---
 <?php
 $title = trim($data['title'] ?? 'Now');
