@@ -183,15 +183,24 @@ export type CollectionDocumentsArgs = {
 
 export type DocumentNode = Pages | Posts | Folder;
 
+export type PagesSections = {
+  __typename?: 'PagesSections';
+  heading: Scalars['String']['output'];
+  summary?: Maybe<Scalars['String']['output']>;
+  items?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
 export type Pages = Node & Document & {
   __typename?: 'Pages';
   title: Scalars['String']['output'];
   description?: Maybe<Scalars['String']['output']>;
   created?: Maybe<Scalars['String']['output']>;
   modified?: Maybe<Scalars['String']['output']>;
+  updated?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['String']['output']>;
   template?: Maybe<Scalars['String']['output']>;
   uuid?: Maybe<Scalars['String']['output']>;
+  sections?: Maybe<Array<Maybe<PagesSections>>>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -205,6 +214,12 @@ export type StringFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type PagesSectionsFilter = {
+  heading?: InputMaybe<StringFilter>;
+  summary?: InputMaybe<StringFilter>;
+  items?: InputMaybe<StringFilter>;
+};
+
 export type RichTextFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
   eq?: InputMaybe<Scalars['String']['input']>;
@@ -216,9 +231,11 @@ export type PagesFilter = {
   description?: InputMaybe<StringFilter>;
   created?: InputMaybe<StringFilter>;
   modified?: InputMaybe<StringFilter>;
+  updated?: InputMaybe<StringFilter>;
   status?: InputMaybe<StringFilter>;
   template?: InputMaybe<StringFilter>;
   uuid?: InputMaybe<StringFilter>;
+  sections?: InputMaybe<PagesSectionsFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
@@ -355,14 +372,22 @@ export type DocumentMutation = {
   posts?: InputMaybe<PostsMutation>;
 };
 
+export type PagesSectionsMutation = {
+  heading?: InputMaybe<Scalars['String']['input']>;
+  summary?: InputMaybe<Scalars['String']['input']>;
+  items?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type PagesMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   created?: InputMaybe<Scalars['String']['input']>;
   modified?: InputMaybe<Scalars['String']['input']>;
+  updated?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Scalars['String']['input']>;
   template?: InputMaybe<Scalars['String']['input']>;
   uuid?: InputMaybe<Scalars['String']['input']>;
+  sections?: InputMaybe<Array<InputMaybe<PagesSectionsMutation>>>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
@@ -377,7 +402,7 @@ export type PostsMutation = {
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
-export type PagesPartsFragment = { __typename: 'Pages', title: string, description?: string | null, created?: string | null, modified?: string | null, status?: string | null, template?: string | null, uuid?: string | null, body?: any | null };
+export type PagesPartsFragment = { __typename: 'Pages', title: string, description?: string | null, created?: string | null, modified?: string | null, updated?: string | null, status?: string | null, template?: string | null, uuid?: string | null, body?: any | null, sections?: Array<{ __typename: 'PagesSections', heading: string, summary?: string | null, items?: Array<string | null> | null } | null> | null };
 
 export type PostsPartsFragment = { __typename: 'Posts', title: string, description?: string | null, created: string, modified?: string | null, tags?: string | null, template: string, uuid?: string | null, body?: any | null };
 
@@ -386,7 +411,7 @@ export type PagesQueryVariables = Exact<{
 }>;
 
 
-export type PagesQuery = { __typename?: 'Query', pages: { __typename: 'Pages', id: string, title: string, description?: string | null, created?: string | null, modified?: string | null, status?: string | null, template?: string | null, uuid?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type PagesQuery = { __typename?: 'Query', pages: { __typename: 'Pages', id: string, title: string, description?: string | null, created?: string | null, modified?: string | null, updated?: string | null, status?: string | null, template?: string | null, uuid?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, sections?: Array<{ __typename: 'PagesSections', heading: string, summary?: string | null, items?: Array<string | null> | null } | null> | null } };
 
 export type PagesConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -398,7 +423,7 @@ export type PagesConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PagesConnectionEdges', cursor: string, node?: { __typename: 'Pages', id: string, title: string, description?: string | null, created?: string | null, modified?: string | null, status?: string | null, template?: string | null, uuid?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PagesConnectionEdges', cursor: string, node?: { __typename: 'Pages', id: string, title: string, description?: string | null, created?: string | null, modified?: string | null, updated?: string | null, status?: string | null, template?: string | null, uuid?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, sections?: Array<{ __typename: 'PagesSections', heading: string, summary?: string | null, items?: Array<string | null> | null } | null> | null } | null } | null> | null } };
 
 export type PostsQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -426,9 +451,16 @@ export const PagesPartsFragmentDoc = gql`
   description
   created
   modified
+  updated
   status
   template
   uuid
+  sections {
+    __typename
+    heading
+    summary
+    items
+  }
   body
 }
     `;

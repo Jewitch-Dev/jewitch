@@ -90,14 +90,22 @@ type Collection {
 
 union DocumentNode = Pages | Posts | Folder
 
+type PagesSections {
+  heading: String!
+  summary: String
+  items: [String]
+}
+
 type Pages implements Node & Document {
   title: String!
   description: String
   created: String
   modified: String
+  updated: String
   status: String
   template: String
   uuid: String
+  sections: [PagesSections]
   body: JSON
   id: ID!
   _sys: SystemInfo!
@@ -111,6 +119,12 @@ input StringFilter {
   in: [String]
 }
 
+input PagesSectionsFilter {
+  heading: StringFilter
+  summary: StringFilter
+  items: StringFilter
+}
+
 input RichTextFilter {
   startsWith: String
   eq: String
@@ -122,9 +136,11 @@ input PagesFilter {
   description: StringFilter
   created: StringFilter
   modified: StringFilter
+  updated: StringFilter
   status: StringFilter
   template: StringFilter
   uuid: StringFilter
+  sections: PagesSectionsFilter
   body: RichTextFilter
 }
 
@@ -198,14 +214,22 @@ input DocumentMutation {
   posts: PostsMutation
 }
 
+input PagesSectionsMutation {
+  heading: String
+  summary: String
+  items: [String]
+}
+
 input PagesMutation {
   title: String
   description: String
   created: String
   modified: String
+  updated: String
   status: String
   template: String
   uuid: String
+  sections: [PagesSectionsMutation]
   body: JSON
 }
 

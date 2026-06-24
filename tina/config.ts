@@ -65,6 +65,12 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "updated",
+            label: "Updated Label",
+            description: "Optional display text, like: June 2026",
+          },
+          {
+            type: "string",
             name: "status",
             label: "Status",
             options: ["draft"],
@@ -81,6 +87,40 @@ export default defineConfig({
             type: "string",
             name: "uuid",
             label: "UUID",
+          },
+          {
+            type: "object",
+            name: "sections",
+            label: "Drag-and-drop Sections",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.heading || "Section",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "heading",
+                label: "Heading",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "summary",
+                label: "Summary",
+                ui: {
+                  component: "textarea",
+                },
+              },
+              {
+                type: "string",
+                name: "items",
+                label: "Items",
+                list: true,
+                description: "Optional bullet-style items for this section.",
+              },
+            ],
           },
           {
             type: "rich-text",

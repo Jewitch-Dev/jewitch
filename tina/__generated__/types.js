@@ -12,9 +12,16 @@ export const PagesPartsFragmentDoc = gql`
   description
   created
   modified
+  updated
   status
   template
   uuid
+  sections {
+    __typename
+    heading
+    summary
+    items
+  }
   body
 }
     `;
