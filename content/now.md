@@ -3,7 +3,6 @@ title: Now
 description: What I'm up to right now
 created: "2026-06-15 22:35:48"
 modified: "2026-06-15 22:35:48"
-status: draft
 updated: June 2026
 uuid: 0b49af2c-9ad7-42ff-8caf-42a9a7952943
 sections:
@@ -18,15 +17,26 @@ sections:
     items:
       - The Closer
 ---
-# Now
-
 <?php
+$title = trim($data['title'] ?? 'Now');
+$description = trim($data['description'] ?? '');
 $updated = trim($data['updated'] ?? '');
 $sections = is_array($data['sections'] ?? null) ? $data['sections'] : [];
 
-if($updated !== '') {
-  echo '<p class="now-updated">Updated '.htmlspecialchars($updated, ENT_QUOTES, 'UTF-8').'</p>';
+echo '<div class="now-page">';
+echo '<section class="now-hero">';
+echo '<p class="now-kicker">Current Dispatch</p>';
+echo '<h1>'.htmlspecialchars($title, ENT_QUOTES, 'UTF-8').'</h1>';
+
+if($description !== '') {
+  echo '<p class="now-description">'.htmlspecialchars($description, ENT_QUOTES, 'UTF-8').'</p>';
 }
+
+if($updated !== '') {
+  echo '<p class="now-updated"><span>Last updated</span>'.htmlspecialchars($updated, ENT_QUOTES, 'UTF-8').'</p>';
+}
+
+echo '</section>';
 
 if(count($sections) > 0) {
   echo '<div class="now-sections">';
@@ -43,11 +53,11 @@ if(count($sections) > 0) {
     echo '<section class="now-section">';
 
     if($heading !== '') {
-      echo '<h2>'.htmlspecialchars($heading, ENT_QUOTES, 'UTF-8').'</h2>';
+      echo '<h2><span>'.htmlspecialchars($heading, ENT_QUOTES, 'UTF-8').'</span></h2>';
     }
 
     if($summary !== '') {
-      echo '<p>'.nl2br(htmlspecialchars($summary, ENT_QUOTES, 'UTF-8')).'</p>';
+      echo '<p class="now-section-summary">'.nl2br(htmlspecialchars($summary, ENT_QUOTES, 'UTF-8')).'</p>';
     }
 
     if(count($items) > 0) {
@@ -66,4 +76,6 @@ if(count($sections) > 0) {
 
   echo '</div>';
 }
+
+echo '</div>';
 ?>
