@@ -22,7 +22,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Check out repo
@@ -42,18 +42,22 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Generate social share images
+        shell: pwsh
+        run: ./scripts/generate-social-images.ps1
+
       - name: Build site with Neato
         run: npm run neato:build
 
       - name: Build Tina admin
-        shell: bash
+        shell: pwsh
         run: |
-          if [ -z "$TINA_TOKEN" ]; then
-            echo "Skipping Tina admin build because TinaCloud secrets are not configured yet."
+          if ([string]::IsNullOrWhiteSpace($env:TINA_TOKEN)) {
+            Write-Host "Skipping Tina admin build because TinaCloud secrets are not configured yet."
             exit 0
-          fi
+          }
           npm run tina:build -- --skip-cloud-checks
-          rm -f published/admin/.gitignore
+          Remove-Item -LiteralPath published/admin/.gitignore -Force -ErrorAction SilentlyContinue
         env:
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
 
