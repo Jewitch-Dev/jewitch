@@ -1,3 +1,15 @@
+fragment PagesParts on Pages {
+  __typename
+  title
+  description
+  created
+  modified
+  status
+  template
+  uuid
+  body
+}
+
 fragment PostsParts on Posts {
   __typename
   title

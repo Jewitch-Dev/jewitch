@@ -5,6 +5,19 @@ export function gql(strings, ...args) {
   });
   return str;
 }
+export const PagesPartsFragmentDoc = gql`
+    fragment PagesParts on Pages {
+  __typename
+  title
+  description
+  created
+  modified
+  status
+  template
+  uuid
+  body
+}
+    `;
 export const PostsPartsFragmentDoc = gql`
     fragment PostsParts on Posts {
   __typename
@@ -18,6 +31,63 @@ export const PostsPartsFragmentDoc = gql`
   body
 }
     `;
+export const PagesDocument = gql`
+    query pages($relativePath: String!) {
+  pages(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PagesParts
+  }
+}
+    ${PagesPartsFragmentDoc}`;
+export const PagesConnectionDocument = gql`
+    query pagesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PagesFilter) {
+  pagesConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PagesParts
+      }
+    }
+  }
+}
+    ${PagesPartsFragmentDoc}`;
 export const PostsDocument = gql`
     query posts($relativePath: String!) {
   posts(relativePath: $relativePath) {
@@ -77,6 +147,12 @@ export const PostsConnectionDocument = gql`
     ${PostsPartsFragmentDoc}`;
 export function getSdk(requester) {
   return {
+    pages(variables, options) {
+      return requester(PagesDocument, variables, options);
+    },
+    pagesConnection(variables, options) {
+      return requester(PagesConnectionDocument, variables, options);
+    },
     posts(variables, options) {
       return requester(PostsDocument, variables, options);
     },

@@ -82,6 +82,8 @@ export type Query = {
   collections: Array<Collection>;
   node: Node;
   document: DocumentNode;
+  pages: Pages;
+  pagesConnection: PagesConnection;
   posts: Posts;
   postsConnection: PostsConnection;
 };
@@ -108,6 +110,21 @@ export type QueryDocumentArgs = {
 };
 
 
+export type QueryPagesArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPagesConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PagesFilter>;
+};
+
+
 export type QueryPostsArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
@@ -123,6 +140,7 @@ export type QueryPostsConnectionArgs = {
 };
 
 export type DocumentFilter = {
+  pages?: InputMaybe<PagesFilter>;
   posts?: InputMaybe<PostsFilter>;
 };
 
@@ -163,16 +181,16 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Posts | Folder;
+export type DocumentNode = Pages | Posts | Folder;
 
-export type Posts = Node & Document & {
-  __typename?: 'Posts';
+export type Pages = Node & Document & {
+  __typename?: 'Pages';
   title: Scalars['String']['output'];
   description?: Maybe<Scalars['String']['output']>;
-  created: Scalars['String']['output'];
+  created?: Maybe<Scalars['String']['output']>;
   modified?: Maybe<Scalars['String']['output']>;
-  tags?: Maybe<Scalars['String']['output']>;
-  template: Scalars['String']['output'];
+  status?: Maybe<Scalars['String']['output']>;
+  template?: Maybe<Scalars['String']['output']>;
   uuid?: Maybe<Scalars['String']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
@@ -191,6 +209,45 @@ export type RichTextFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
   eq?: InputMaybe<Scalars['String']['input']>;
   exists?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type PagesFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  created?: InputMaybe<StringFilter>;
+  modified?: InputMaybe<StringFilter>;
+  status?: InputMaybe<StringFilter>;
+  template?: InputMaybe<StringFilter>;
+  uuid?: InputMaybe<StringFilter>;
+  body?: InputMaybe<RichTextFilter>;
+};
+
+export type PagesConnectionEdges = {
+  __typename?: 'PagesConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Pages>;
+};
+
+export type PagesConnection = Connection & {
+  __typename?: 'PagesConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<PagesConnectionEdges>>>;
+};
+
+export type Posts = Node & Document & {
+  __typename?: 'Posts';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  created: Scalars['String']['output'];
+  modified?: Maybe<Scalars['String']['output']>;
+  tags?: Maybe<Scalars['String']['output']>;
+  template: Scalars['String']['output'];
+  uuid?: Maybe<Scalars['String']['output']>;
+  body?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
 };
 
 export type PostsFilter = {
@@ -224,6 +281,8 @@ export type Mutation = {
   deleteDocument: DocumentNode;
   createDocument: DocumentNode;
   createFolder: DocumentNode;
+  updatePages: Pages;
+  createPages: Pages;
   updatePosts: Posts;
   createPosts: Posts;
 };
@@ -262,6 +321,18 @@ export type MutationCreateFolderArgs = {
 };
 
 
+export type MutationUpdatePagesArgs = {
+  relativePath: Scalars['String']['input'];
+  params: PagesMutation;
+};
+
+
+export type MutationCreatePagesArgs = {
+  relativePath: Scalars['String']['input'];
+  params: PagesMutation;
+};
+
+
 export type MutationUpdatePostsArgs = {
   relativePath: Scalars['String']['input'];
   params: PostsMutation;
@@ -274,12 +345,25 @@ export type MutationCreatePostsArgs = {
 };
 
 export type DocumentUpdateMutation = {
+  pages?: InputMaybe<PagesMutation>;
   posts?: InputMaybe<PostsMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
+  pages?: InputMaybe<PagesMutation>;
   posts?: InputMaybe<PostsMutation>;
+};
+
+export type PagesMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  created?: InputMaybe<Scalars['String']['input']>;
+  modified?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+  template?: InputMaybe<Scalars['String']['input']>;
+  uuid?: InputMaybe<Scalars['String']['input']>;
+  body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
 export type PostsMutation = {
@@ -293,7 +377,28 @@ export type PostsMutation = {
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type PagesPartsFragment = { __typename: 'Pages', title: string, description?: string | null, created?: string | null, modified?: string | null, status?: string | null, template?: string | null, uuid?: string | null, body?: any | null };
+
 export type PostsPartsFragment = { __typename: 'Posts', title: string, description?: string | null, created: string, modified?: string | null, tags?: string | null, template: string, uuid?: string | null, body?: any | null };
+
+export type PagesQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type PagesQuery = { __typename?: 'Query', pages: { __typename: 'Pages', id: string, title: string, description?: string | null, created?: string | null, modified?: string | null, status?: string | null, template?: string | null, uuid?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type PagesConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PagesFilter>;
+}>;
+
+
+export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PagesConnectionEdges', cursor: string, node?: { __typename: 'Pages', id: string, title: string, description?: string | null, created?: string | null, modified?: string | null, status?: string | null, template?: string | null, uuid?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type PostsQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -314,6 +419,19 @@ export type PostsConnectionQueryVariables = Exact<{
 
 export type PostsConnectionQuery = { __typename?: 'Query', postsConnection: { __typename?: 'PostsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PostsConnectionEdges', cursor: string, node?: { __typename: 'Posts', id: string, title: string, description?: string | null, created: string, modified?: string | null, tags?: string | null, template: string, uuid?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
+export const PagesPartsFragmentDoc = gql`
+    fragment PagesParts on Pages {
+  __typename
+  title
+  description
+  created
+  modified
+  status
+  template
+  uuid
+  body
+}
+    `;
 export const PostsPartsFragmentDoc = gql`
     fragment PostsParts on Posts {
   __typename
@@ -327,6 +445,63 @@ export const PostsPartsFragmentDoc = gql`
   body
 }
     `;
+export const PagesDocument = gql`
+    query pages($relativePath: String!) {
+  pages(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PagesParts
+  }
+}
+    ${PagesPartsFragmentDoc}`;
+export const PagesConnectionDocument = gql`
+    query pagesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PagesFilter) {
+  pagesConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PagesParts
+      }
+    }
+  }
+}
+    ${PagesPartsFragmentDoc}`;
 export const PostsDocument = gql`
     query posts($relativePath: String!) {
   posts(relativePath: $relativePath) {
@@ -387,7 +562,13 @@ export const PostsConnectionDocument = gql`
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      posts(variables: PostsQueryVariables, options?: C): Promise<{data: PostsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostsQueryVariables, query: string}> {
+      pages(variables: PagesQueryVariables, options?: C): Promise<{data: PagesQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PagesQueryVariables, query: string}> {
+        return requester<{data: PagesQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PagesQueryVariables, query: string}, PagesQueryVariables>(PagesDocument, variables, options);
+      },
+    pagesConnection(variables?: PagesConnectionQueryVariables, options?: C): Promise<{data: PagesConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PagesConnectionQueryVariables, query: string}> {
+        return requester<{data: PagesConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PagesConnectionQueryVariables, query: string}, PagesConnectionQueryVariables>(PagesConnectionDocument, variables, options);
+      },
+    posts(variables: PostsQueryVariables, options?: C): Promise<{data: PostsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostsQueryVariables, query: string}> {
         return requester<{data: PostsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostsQueryVariables, query: string}, PostsQueryVariables>(PostsDocument, variables, options);
       },
     postsConnection(variables?: PostsConnectionQueryVariables, options?: C): Promise<{data: PostsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: PostsConnectionQueryVariables, query: string}> {

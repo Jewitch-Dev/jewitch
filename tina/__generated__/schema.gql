@@ -54,11 +54,14 @@ type Query {
   collections: [Collection!]!
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
+  pages(relativePath: String): Pages!
+  pagesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PagesFilter): PagesConnection!
   posts(relativePath: String): Posts!
   postsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PostsFilter): PostsConnection!
 }
 
 input DocumentFilter {
+  pages: PagesFilter
   posts: PostsFilter
 }
 
@@ -85,15 +88,15 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Posts | Folder
+union DocumentNode = Pages | Posts | Folder
 
-type Posts implements Node & Document {
+type Pages implements Node & Document {
   title: String!
   description: String
-  created: String!
+  created: String
   modified: String
-  tags: String
-  template: String!
+  status: String
+  template: String
   uuid: String
   body: JSON
   id: ID!
@@ -112,6 +115,42 @@ input RichTextFilter {
   startsWith: String
   eq: String
   exists: Boolean
+}
+
+input PagesFilter {
+  title: StringFilter
+  description: StringFilter
+  created: StringFilter
+  modified: StringFilter
+  status: StringFilter
+  template: StringFilter
+  uuid: StringFilter
+  body: RichTextFilter
+}
+
+type PagesConnectionEdges {
+  cursor: String!
+  node: Pages
+}
+
+type PagesConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [PagesConnectionEdges]
+}
+
+type Posts implements Node & Document {
+  title: String!
+  description: String
+  created: String!
+  modified: String
+  tags: String
+  template: String!
+  uuid: String
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
 }
 
 input PostsFilter {
@@ -142,17 +181,32 @@ type Mutation {
   deleteDocument(collection: String, relativePath: String!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   createFolder(collection: String, relativePath: String!): DocumentNode!
+  updatePages(relativePath: String!, params: PagesMutation!): Pages!
+  createPages(relativePath: String!, params: PagesMutation!): Pages!
   updatePosts(relativePath: String!, params: PostsMutation!): Posts!
   createPosts(relativePath: String!, params: PostsMutation!): Posts!
 }
 
 input DocumentUpdateMutation {
+  pages: PagesMutation
   posts: PostsMutation
   relativePath: String
 }
 
 input DocumentMutation {
+  pages: PagesMutation
   posts: PostsMutation
+}
+
+input PagesMutation {
+  title: String
+  description: String
+  created: String
+  modified: String
+  status: String
+  template: String
+  uuid: String
+  body: JSON
 }
 
 input PostsMutation {
