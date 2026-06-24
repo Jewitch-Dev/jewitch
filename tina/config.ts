@@ -28,6 +28,10 @@ export default defineConfig({
         path: "content/posts",
         format: "md",
         ui: {
+          allowedActions: {
+            create: true,
+            delete: true,
+          },
           filename: {
             readonly: false,
             slugify: (values) => {
