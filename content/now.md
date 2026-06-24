@@ -28,12 +28,18 @@ sections:
     items:
       - The Closer
       - The West Wing, probably forever
-  - heading: Listening for
+  - heading: Listening To
     summary: The songs, voices, and emotional weather that keep me company.
-    items:
-      - Stevie Nicks energy
-      - Big feelings with a good bridge
-      - Music that understands survival
+    albums:
+      - title: Trouble in Shangri-La
+        artist: Stevie Nicks
+        image: /assets/albums/Trouble in Shangri-La Stevie Nicks.jpg
+      - title: Say You Will
+        artist: Fleetwood Mac
+        image: /assets/albums/Say You Will Fleetwood Mac.jpg
+      - title: Fumbling Towards Ecstasy
+        artist: Sarah McLachlan
+        image: /assets/albums/Fumbling Towards Ecstasy Sarah McLachlan.jpg
 ---
 <?php
 $title = trim($data['title'] ?? 'Now');
@@ -76,8 +82,9 @@ if(count($sections) > 0) {
     $heading = trim($section['heading'] ?? '');
     $summary = trim($section['summary'] ?? '');
     $items = is_array($section['items'] ?? null) ? $section['items'] : [];
+    $albums = is_array($section['albums'] ?? null) ? $section['albums'] : [];
 
-    if($heading === '' && $summary === '' && count($items) === 0) {
+    if($heading === '' && $summary === '' && count($items) === 0 && count($albums) === 0) {
       continue;
     }
 
@@ -90,6 +97,37 @@ if(count($sections) > 0) {
 
     if($summary !== '') {
       echo '<p class="now-section-summary">'.nl2br(htmlspecialchars($summary, ENT_QUOTES, 'UTF-8')).'</p>';
+    }
+
+    if(count($albums) > 0) {
+      echo '<div class="now-album-grid">';
+      foreach($albums as $album) {
+        $albumTitle = trim($album['title'] ?? '');
+        $albumArtist = trim($album['artist'] ?? '');
+        $albumImage = trim($album['image'] ?? '');
+
+        if($albumTitle === '' && $albumArtist === '' && $albumImage === '') {
+          continue;
+        }
+
+        echo '<figure class="now-album-card">';
+
+        if($albumImage !== '') {
+          echo '<img src="'.htmlspecialchars($albumImage, ENT_QUOTES, 'UTF-8').'" alt="'.htmlspecialchars(trim($albumTitle.' album cover'), ENT_QUOTES, 'UTF-8').'">';
+        }
+
+        echo '<figcaption>';
+        if($albumTitle !== '') {
+          echo '<strong>'.htmlspecialchars($albumTitle, ENT_QUOTES, 'UTF-8').'</strong>';
+        }
+        if($albumArtist !== '') {
+          echo '<span>'.htmlspecialchars($albumArtist, ENT_QUOTES, 'UTF-8').'</span>';
+        }
+        echo '</figcaption>';
+
+        echo '</figure>';
+      }
+      echo '</div>';
     }
 
     if(count($items) > 0) {

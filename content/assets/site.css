@@ -633,6 +633,57 @@ main .post-list.archive-list {
     width: .55rem;
 }
 
+.now-album-grid {
+    display: grid;
+    gap: .85rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.now-album-card {
+    background: rgba(255, 255, 255, .045);
+    border: 1px solid rgba(255, 255, 255, .09);
+    border-radius: 16px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.now-album-card img,
+main .now-album-card img:first-child {
+    aspect-ratio: 1;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    height: auto;
+    margin: 0;
+    max-width: none;
+    object-fit: cover;
+    width: 100%;
+}
+
+.now-album-card figcaption {
+    display: grid;
+    gap: .15rem;
+    padding: .7rem;
+}
+
+.now-album-card strong,
+.now-album-card span {
+    display: block;
+    line-height: 1.25;
+}
+
+.now-album-card strong {
+    color: var(--text);
+    font-size: .95rem;
+}
+
+.now-album-card span {
+    color: var(--muted);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: .78rem;
+}
+
 .site-footer {
     color: var(--faint);
     font-size: .95rem;
@@ -834,5 +885,9 @@ main .post-list.archive-list {
         align-self: start;
         min-width: 0;
         width: 100%;
+    }
+
+    .now-album-grid {
+        grid-template-columns: 1fr;
     }
 }
