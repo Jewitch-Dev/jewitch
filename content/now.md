@@ -25,10 +25,15 @@ sections:
       - Seeing what can be integrated into the Neato Alpha! 
   - heading: Watching
     summary: Revisiting stories that can sit beside me while I think.
-    items:
-      - The Closer
-      - The West Wing (the 5,000th rewatch)
-      - The X-Files (Attempting another rewatch)
+    shows:
+      - title: The Closer
+        image: /assets/tv/The Closer.jpg
+      - title: The West Wing (the 5,000th rewatch)
+        image: /assets/tv/The West Wing.jpg
+      - title: The X-Files (Attempting another rewatch)
+        image: /assets/tv/The X-Files.jpg
+      - title: Murder, She Wrote
+        image: /assets/tv/Murder She Wrote.jpg
   - heading: Listening To
     summary: The voices that are currently guiding me through the wastelands
     albums:
@@ -86,9 +91,10 @@ if(count($sections) > 0) {
     $heading = trim($section['heading'] ?? '');
     $summary = trim($section['summary'] ?? '');
     $items = is_array($section['items'] ?? null) ? $section['items'] : [];
+    $shows = is_array($section['shows'] ?? null) ? $section['shows'] : [];
     $albums = is_array($section['albums'] ?? null) ? $section['albums'] : [];
 
-    if($heading === '' && $summary === '' && count($items) === 0 && count($albums) === 0) {
+    if($heading === '' && $summary === '' && count($items) === 0 && count($shows) === 0 && count($albums) === 0) {
       continue;
     }
 
@@ -101,6 +107,33 @@ if(count($sections) > 0) {
 
     if($summary !== '') {
       echo '<p class="now-section-summary">'.nl2br(htmlspecialchars($summary, ENT_QUOTES, 'UTF-8')).'</p>';
+    }
+
+    if(count($shows) > 0) {
+      echo '<div class="now-show-grid">';
+      foreach($shows as $show) {
+        $showTitle = trim($show['title'] ?? '');
+        $showImage = trim($show['image'] ?? '');
+
+        if($showTitle === '' && $showImage === '') {
+          continue;
+        }
+
+        echo '<figure class="now-show-card">';
+
+        if($showImage !== '') {
+          echo '<img src="'.htmlspecialchars($showImage, ENT_QUOTES, 'UTF-8').'" alt="'.htmlspecialchars(trim($showTitle.' show art'), ENT_QUOTES, 'UTF-8').'">';
+        }
+
+        echo '<figcaption>';
+        if($showTitle !== '') {
+          echo '<strong>'.htmlspecialchars($showTitle, ENT_QUOTES, 'UTF-8').'</strong>';
+        }
+        echo '</figcaption>';
+
+        echo '</figure>';
+      }
+      echo '</div>';
     }
 
     if(count($albums) > 0) {
