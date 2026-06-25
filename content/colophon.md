@@ -50,42 +50,29 @@ uuid: 8a4c94f3-22b2-4a4f-8d53-7f3643392a5f
 </article>
 </section>
 
-<section class="hardware-card">
-<p class="page-kicker">Hardware</p>
+<section class="tool-grid colophon-detail-grid" aria-label="Hardware and software">
+<article class="tool-card">
+<span><i class="fa-solid fa-computer" aria-hidden="true"></i> Hardware</span>
 <h2>The machine behind the making</h2>
-<dl>
-<div>
-<dt>Processor</dt>
-<dd>AMD Ryzen 7 8700F 8-Core Processor (4.10 GHz)</dd>
-</div>
-<div>
-<dt>Memory</dt>
-<dd>32.0 GB RAM (31.6 GB usable)</dd>
-</div>
-<div>
-<dt>Graphics</dt>
-<dd>NVIDIA GeForce RTX 5070 (12 GB)</dd>
-</div>
-</dl>
-</section>
+<ul class="spec-list">
+<li><strong>Processor</strong><span>AMD Ryzen 7 8700F 8-Core Processor (4.10 GHz)</span></li>
+<li><strong>Memory</strong><span>32.0 GB RAM </span></li>
+<li><strong>Graphics</strong><span>NVIDIA GeForce RTX 5070 (12 GB)</span></li>
+</ul>
+</article>
 
-<section class="hardware-card software-card">
-<p class="page-kicker">Software</p>
+<article class="tool-card">
+<span><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Software</span>
 <h2>The tools used to tend the site</h2>
-<dl>
-<div>
-<dt>Editor</dt>
-<dd>Visual Studio Code</dd>
-</div>
-<div>
-<dt>Browser</dt>
-<dd>Firefox</dd>
-</div>
-</dl>
+<ul class="spec-list">
+<li><strong>Editor</strong><span>Visual Studio Code</span></li>
+<li><strong>Browser</strong><span>Firefox</span></li>
+</ul>
+</article>
 </section>
 
 <section class="colophon-note">
 <h2>Site Philosophy</h2>
-<p>This site is intentionally personal. It is not optimized for algorithms, growth hacking, or performing professionalism. It is a home for writing, memory, anger, delight, and the kind of internet that still leaves fingerprints.</p>
+<p>A Site that is built with the IndieWeb spirit. Minimalism but with style that hearkens back to the Internet of yesteryear.</p>
 </section>
 </div>
