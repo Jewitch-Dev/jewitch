@@ -50,6 +50,40 @@ uuid: 8a4c94f3-22b2-4a4f-8d53-7f3643392a5f
 </article>
 </section>
 
+<section class="hardware-card">
+<p class="page-kicker">Hardware</p>
+<h2>The machine behind the making</h2>
+<dl>
+<div>
+<dt>Processor</dt>
+<dd>AMD Ryzen 7 8700F 8-Core Processor (4.10 GHz)</dd>
+</div>
+<div>
+<dt>Memory</dt>
+<dd>32.0 GB RAM (31.6 GB usable)</dd>
+</div>
+<div>
+<dt>Graphics</dt>
+<dd>NVIDIA GeForce RTX 5070 (12 GB)</dd>
+</div>
+</dl>
+</section>
+
+<section class="hardware-card software-card">
+<p class="page-kicker">Software</p>
+<h2>The tools used to tend the site</h2>
+<dl>
+<div>
+<dt>Editor</dt>
+<dd>Visual Studio Code</dd>
+</div>
+<div>
+<dt>Browser</dt>
+<dd>Firefox</dd>
+</div>
+</dl>
+</section>
+
 <section class="colophon-note">
 <h2>Site Philosophy</h2>
 <p>This site is intentionally personal. It is not optimized for algorithms, growth hacking, or performing professionalism. It is a home for writing, memory, anger, delight, and the kind of internet that still leaves fingerprints.</p>
