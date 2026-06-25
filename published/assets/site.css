@@ -711,55 +711,50 @@ main .home-portrait img:first-child {
     margin: 0;
 }
 
-.hardware-card {
-    background:
-        linear-gradient(135deg, rgba(215, 167, 255, .12), transparent 42%),
-        rgba(255, 255, 255, .045);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    margin: 1rem 0;
-    padding: 1.15rem 1.25rem;
+.colophon-detail-grid {
+    margin-top: 1rem;
 }
 
-.hardware-card .page-kicker {
-    margin-bottom: .55rem;
-}
-
-.hardware-card h2 {
-    font-size: clamp(1.45rem, 4vw, 2rem);
-    letter-spacing: -.025em;
-    margin: 0 0 1rem;
-}
-
-.hardware-card dl {
+.spec-list,
+main .spec-list {
     display: grid;
-    gap: .7rem;
+    gap: .65rem;
+    list-style: none;
     margin: 0;
+    max-width: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
 }
 
-.hardware-card dl div {
-    align-items: baseline;
+.spec-list li {
     background: rgba(255, 255, 255, .04);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 14px;
     display: grid;
-    gap: .75rem;
-    grid-template-columns: 8rem 1fr;
-    padding: .75rem .9rem;
+    gap: .4rem;
+    margin: 0;
+    padding: .7rem .8rem;
 }
 
-.hardware-card dt {
+.spec-list strong,
+.spec-list span {
+    display: block;
+}
+
+.spec-list strong {
     color: var(--accent-warm);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: .78rem;
+    font-size: .74rem;
     font-weight: 800;
     letter-spacing: .12em;
     text-transform: uppercase;
 }
 
-.hardware-card dd {
+.spec-list span {
     color: var(--text);
-    margin: 0;
+    font-size: .95rem;
+    line-height: 1.35;
 }
 
 h2 {
@@ -1422,10 +1417,6 @@ main .now-show-card img:first-child {
 
     .belief-grid,
     .tool-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hardware-card dl div {
         grid-template-columns: 1fr;
     }
 
