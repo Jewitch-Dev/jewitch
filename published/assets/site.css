@@ -711,6 +711,57 @@ main .home-portrait img:first-child {
     margin: 0;
 }
 
+.hardware-card {
+    background:
+        linear-gradient(135deg, rgba(215, 167, 255, .12), transparent 42%),
+        rgba(255, 255, 255, .045);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 1rem 0;
+    padding: 1.15rem 1.25rem;
+}
+
+.hardware-card .page-kicker {
+    margin-bottom: .55rem;
+}
+
+.hardware-card h2 {
+    font-size: clamp(1.45rem, 4vw, 2rem);
+    letter-spacing: -.025em;
+    margin: 0 0 1rem;
+}
+
+.hardware-card dl {
+    display: grid;
+    gap: .7rem;
+    margin: 0;
+}
+
+.hardware-card dl div {
+    align-items: baseline;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    display: grid;
+    gap: .75rem;
+    grid-template-columns: 8rem 1fr;
+    padding: .75rem .9rem;
+}
+
+.hardware-card dt {
+    color: var(--accent-warm);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.hardware-card dd {
+    color: var(--text);
+    margin: 0;
+}
+
 h2 {
     margin-top: 2.25rem;
 }
@@ -1371,6 +1422,10 @@ main .now-show-card img:first-child {
 
     .belief-grid,
     .tool-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hardware-card dl div {
         grid-template-columns: 1fr;
     }
 
