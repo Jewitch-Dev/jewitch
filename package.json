@@ -2,8 +2,9 @@
   "type": "module",
   "scripts": {
     "tina:build": "tinacms build",
-    "neato:build": "php neato.php",
-    "build": "tinacms build && php neato.php"
+    "social:images": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/generate-social-images.ps1",
+    "neato:build": "npm run social:images && php neato.php",
+    "build": "tinacms build && npm run neato:build"
   },
   "dependencies": {
     "react": "^19.1.0",

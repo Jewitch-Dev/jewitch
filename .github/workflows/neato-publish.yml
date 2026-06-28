@@ -44,10 +44,6 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      - name: Generate social share images
-        shell: pwsh
-        run: ./scripts/generate-social-images.ps1
-
       - name: Build site with Neato
         run: npm run neato:build
 

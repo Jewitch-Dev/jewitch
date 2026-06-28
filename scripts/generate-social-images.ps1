@@ -30,6 +30,39 @@ function Get-FrontMatter {
     return $metadata
 }
 
+function Set-FrontMatterValue {
+    param(
+        [string]$Path,
+        [string]$Key,
+        [string]$Value
+    )
+
+    $text = Get-Content -LiteralPath $Path -Raw
+    $match = [regex]::Match($text, '(?s)\A---\s*\r?\n(.*?)\r?\n---')
+
+    if (-not $match.Success) {
+        return $false
+    }
+
+    $frontMatter = $match.Groups[1].Value
+    $body = $text.Substring($match.Length)
+    $linePattern = "(?m)^(\s*$([regex]::Escape($Key))\s*:\s*).*$"
+
+    if ([regex]::IsMatch($frontMatter, $linePattern, [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)) {
+        $frontMatter = [regex]::Replace(
+            $frontMatter,
+            $linePattern,
+            "`${1}$Value",
+            [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
+        )
+    } else {
+        $frontMatter = $frontMatter.TrimEnd() + "`r`n${Key}: $Value"
+    }
+
+    Set-Content -LiteralPath $Path -Value ("---`r`n$frontMatter`r`n---$body") -NoNewline
+    return $true
+}
+
 function Measure-TextWidth {
     param(
         [System.Drawing.Graphics]$Graphics,
@@ -184,9 +217,19 @@ function New-SocialImage {
 Get-ChildItem -LiteralPath $postsDir -Filter "*.md" | ForEach-Object {
     $metadata = Get-FrontMatter $_.FullName
 
-    if (-not $metadata.ContainsKey("uuid") -or -not $metadata.ContainsKey("title")) {
-        Write-Warning "Skipping $($_.Name): missing title or uuid."
+    if (-not $metadata.ContainsKey("title")) {
+        Write-Warning "Skipping $($_.Name): missing title."
         return
+    }
+
+    if (-not $metadata.ContainsKey("uuid") -or [string]::IsNullOrWhiteSpace($metadata["uuid"])) {
+        $metadata["uuid"] = [guid]::NewGuid().ToString()
+        if (Set-FrontMatterValue -Path $_.FullName -Key "uuid" -Value $metadata["uuid"]) {
+            Write-Host "Added UUID to $($_.Name): $($metadata["uuid"])"
+        } else {
+            Write-Warning "Skipping $($_.Name): unable to add missing uuid."
+            return
+        }
     }
 
     $description = if ($metadata.ContainsKey("description")) { $metadata["description"] } else { "" }
