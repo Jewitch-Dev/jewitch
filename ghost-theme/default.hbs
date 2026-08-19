@@ -3,29 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#09070c">
+  <meta name="theme-color" content="#07050a">
   <link rel="stylesheet" href="{{asset "css/screen.css"}}">
   {{ghost_head}}
 </head>
 <body class="{{body_class}}">
-<div class="mystic-glow" aria-hidden="true"></div>
+<div class="tech-grid" aria-hidden="true"></div>
+<div class="ambient-node" aria-hidden="true"></div>
 <div class="site-shell">
   <header class="site-header">
     <a class="brand" href="{{@site.url}}">
-      <span class="brand-sigil">☾</span>
-      <span><strong>Jewitch</strong><small>Musings of a Jewish Witch</small></span>
+      <span class="brand-sigil"><span>☾</span></span>
+      <span class="brand-copy"><strong>JEWITCH</strong><small>TECH // MAGICK // PERSONAL NODE</small></span>
     </a>
+    <div class="system-status" aria-hidden="true"><span class="status-dot"></span> NODE ONLINE</div>
     <nav class="site-nav" aria-label="Primary navigation">
       <ul>
-        <li><a href="{{@site.url}}">Journal</a></li>
-        <li><a href="{{@site.url}}/tag/news/">Topics</a></li>
-        <li><a href="https://jewit.ch/about/">About</a></li>
-        <li><a href="https://jewit.ch/now/">Now</a></li>
+        <li><a href="{{@site.url}}"><span>01</span>Journal</a></li>
+        <li><a href="{{@site.url}}/tag/news/"><span>02</span>Topics</a></li>
+        <li><a href="https://jewit.ch/about/"><span>03</span>About</a></li>
+        <li><a href="https://jewit.ch/now/"><span>04</span>Now</a></li>
       </ul>
     </nav>
   </header>
   <main>{{{body}}}</main>
-  <footer class="site-footer"><span>Jewitch</span><span class="footer-sigil">☾ · ✦</span><span>© {{date format="YYYY"}} Shira</span></footer>
+  <footer class="site-footer"><span>JEWITCH_NODE // {{date format="YYYY"}}</span><span class="footer-sigil">[ ☾ // ✦ ]</span><span>TRANSMISSION BY SHIRA</span></footer>
 </div>
 {{ghost_foot}}
 </body>
