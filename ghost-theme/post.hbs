@@ -1,15 +1,20 @@
 {{!< default}}
 {{#post}}
 <article class="post-full">
-  <header class="post-header">
-    <div class="post-tags">{{tags prefix="#" separator=" &nbsp; #"}}</div>
-    <h1>{{title}}</h1>
+  <header class="post-header tech-post-header">
+    <div class="article-protocol"><span>TRANSMISSION://ENTRY</span><span>STATUS // PUBLISHED</span></div>
+    <div class="post-tags">{{tags prefix="// " separator=" &nbsp; // "}}</div>
+    <h1>{{title}}<span class="title-cursor">_</span></h1>
     {{#if custom_excerpt}}<p class="post-deck">{{custom_excerpt}}</p>{{/if}}
-    <div class="post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}</time> <i></i> {{reading_time}}{{#primary_author}} <i></i> {{name}}{{/primary_author}}</div>
+    <div class="post-meta article-meta"><time datetime="{{date format="YYYY-MM-DD"}}">DATE // {{date format="YYYY.MM.DD"}}</time><i></i>READ // {{reading_time}}{{#primary_author}}<i></i>OPERATOR // {{name}}{{/primary_author}}</div>
   </header>
   {{#if feature_image}}
-    <figure class="feature-wrap"><img class="feature-image" src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}">{{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}</figure>
+    <figure class="feature-wrap tech-feature"><span class="frame-label">VISUAL_DATA // 01</span><span class="frame-corner fc-a"></span><span class="frame-corner fc-b"></span><img class="feature-image" src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}">{{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}</figure>
   {{/if}}
-  <div class="gh-content">{{content}}</div>
+  <div class="article-grid">
+    <aside class="article-rail" aria-hidden="true"><span>JEWITCH_NODE</span><div></div><span>↓ SIGNAL</span></aside>
+    <div class="gh-content">{{content}}</div>
+  </div>
+  <footer class="article-end"><span>END_TRANSMISSION</span><span>☾ // ✦</span></footer>
 </article>
 {{/post}}
