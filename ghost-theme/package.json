@@ -1,0 +1,8 @@
+{
+  "name": "jewitch",
+  "description": "Dark modern mystical Ghost theme for Jewitch",
+  "version": "0.1.0",
+  "engines": {"ghost": ">=6.0.0"},
+  "license": "MIT",
+  "config": {"posts_per_page": 10}
+}
