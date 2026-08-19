@@ -1,0 +1,40 @@
+name: Build Ghost blog preview
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/ghost-blog
+    paths:
+      - "scripts/build-ghost-blog.mjs"
+      - ".github/workflows/ghost-blog-preview.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out development branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build Ghost preview
+        env:
+          GHOST_URL: https://cms.jewit.ch
+          GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_CONTENT_API_KEY }}
+          BLOG_PUBLIC_BASE: /blog-next
+          BLOG_OUTPUT: published/blog-next
+        run: node scripts/build-ghost-blog.mjs
+
+      - name: Commit generated preview
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Build Ghost blog preview"
+          file_pattern: "published/blog-next/**"
