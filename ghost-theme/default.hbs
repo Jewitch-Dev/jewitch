@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{@site.locale}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#09070c">
+  <link rel="stylesheet" href="{{asset "css/screen.css"}}">
+  {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+<div class="mystic-glow" aria-hidden="true"></div>
+<div class="site-shell">
+  <header class="site-header">
+    <a class="brand" href="{{@site.url}}">
+      <span class="brand-sigil">☾</span>
+      <span><strong>{{@site.title}}</strong><small>{{@site.description}}</small></span>
+    </a>
+    <nav class="site-nav">
+      {{navigation}}
+    </nav>
+  </header>
+  <main>{{{body}}}</main>
+  <footer class="site-footer"><span>Jewitch</span><span class="footer-sigil">☾ · ✦</span><span>© {{date format="YYYY"}} Shira</span></footer>
+</div>
+{{ghost_foot}}
+</body>
+</html>
