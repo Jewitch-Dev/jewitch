@@ -1,7 +1,27 @@
 ---
 layout: layouts/base.njk
 ---
-<div class="content home-content">
-  <div class="terminal-command" aria-hidden="true"><span>shira@jewit.ch:~$</span> ./welcome</div>
-  <main>{{ content | safe }}</main>
+<section class="hero"><div class="hero-content">
+  <div class="profile-container"><div class="profile-image"><img src="/assets/profile.png" alt="Shira"></div></div>
+  <h1 class="site-headline">Jewitch</h1>
+  <p class="site-description">return musings.filter(thought =&gt; thought.refusesToLeaveQuietly);</p>
+  <div class="hero-badge"><span class="activitypub-badge">@import ActivityPub</span></div>
+</div></section>
+<div class="content-wrapper">
+  <main class="posts-container">
+    {% for post in collections.posts %}{% if loop.index <= 5 %}
+    <article class="post-card"><div class="post-card-content">
+      <div class="post-meta"><time datetime="{{ post.date.toISOString() }}">{{ post.date | readableDate }}</time></div>
+      <h2 class="post-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      <div class="post-excerpt">{{ post.data.description or post.content | striptags | truncate(220) }}</div>
+      <a href="{{ post.url }}" class="read-more">readMore() <span class="arrow">→</span></a>
+    </div></article>
+    {% endif %}{% endfor %}
+    <a class="all-posts-link" href="/blog/">View all writing →</a>
+  </main>
+  <aside class="sidebar">
+    <div class="about-card"><h3>whoami</h3><p>Disabled Jewish Witch, writer, music devotee, and stubborn believer in a more humane internet.</p><div class="terminal-box"><span class="command-line">whoami</span><span class="command-output">Shira · She/Her · Jewitch</span></div><a href="/about/" class="social-link">About me</a></div>
+    <div class="activitypub-card"><h3>Federated Content</h3><p>Short public posts are fetched from Mastodon and archived here automatically.</p><a href="/notes/" class="activitypub-link">Read Fediverse Notes</a></div>
+    <div class="topics-card"><h3>Topics</h3><ul class="topics-list"><li>Jewishness</li><li>Witchcraft</li><li>Disability</li><li>Politics</li><li>Music</li></ul></div>
+  </aside>
 </div>

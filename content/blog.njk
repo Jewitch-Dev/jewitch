@@ -1,25 +1,17 @@
 ---
 title: Blog
 description: Essays, rants, reflections, and random brain droppings from Shira.
-layout: layouts/page.njk
+layout: layouts/base.njk
 permalink: /blog/index.html
 ---
-<h1>Blog</h1>
-<p class="blog-intro">A personal blog. Random brain droppings, late-night projects, music, memory, and whatever else wanders through.</p>
-{% set currentYear = "" %}
+<section class="hero compact-hero"><div class="hero-content"><h1 class="site-headline">Writing</h1><p class="site-description">Essays, rants, reflections, and whatever thought refuses to leave quietly.</p></div></section>
+<main class="posts-container">
 {% for post in collections.posts %}
-  {% set postYear = post.date.getUTCFullYear() %}
-  {% if postYear != currentYear %}
-    {% if currentYear %}</ul>{% endif %}
-    <h2 class="archive-year">{{ postYear }}</h2>
-    <ul class="post-list archive-list">
-    {% set currentYear = postYear %}
-  {% endif %}
-  <li class="archive-item">
-    <a class="archive-link" href="{{ post.url }}">
-      <time datetime="{{ post.date.toISOString() }}">{{ post.date | shortDate }}</time>
-      <span>{{ post.data.title }}</span>
-    </a>
-  </li>
+<article class="post-card"><div class="post-card-content">
+  <div class="post-meta"><time datetime="{{ post.date.toISOString() }}">{{ post.date | readableDate }}</time></div>
+  <h2 class="post-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+  <div class="post-excerpt">{{ post.data.description or post.content | striptags | truncate(260) }}</div>
+  <a href="{{ post.url }}" class="read-more">readMore() <span class="arrow">→</span></a>
+</div></article>
 {% endfor %}
-{% if collections.posts.length %}</ul>{% endif %}
+</main>

@@ -1,20 +1,4 @@
 ---
 layout: layouts/base.njk
 ---
-<div class="content note-content">
-  <div class="terminal-command" aria-hidden="true"><span>shira@jewit.ch:~$</span> curl {{ source_url }}</div>
-  <main>
-    <article class="note-article">
-      <header class="note-heading">
-        <p class="note-kicker">From the Fediverse</p>
-        <h1>{{ title }}</h1>
-        <time datetime="{{ mastodon_created_at }}">{{ date | readableDate }}</time>
-      </header>
-      <div class="note-body">{{ content | safe }}</div>
-      <footer class="note-footer">
-        <a href="{{ source_url }}" rel="external">View the original post and conversation on Mastodon →</a>
-      </footer>
-    </article>
-    <a class="back-link" href="/notes/">Return to Notes</a>
-  </main>
-</div>
+<article class="single-post"><header class="post-header"><div class="post-meta"><time datetime="{{ mastodon_created_at }}">{{ date | readableDate }}</time></div><h1 class="post-title">{{ title }}</h1></header><div class="post-content">{{ content | safe }}</div><footer class="post-footer"><a href="/notes/" class="back-link">← Back to notes</a><div class="source-note">Originally published on Mastodon. <a href="{{ source_url }}" class="source-link">View the conversation</a></div></footer></article>

@@ -1,20 +1,5 @@
 ---
 layout: layouts/base.njk
 ---
-<div class="content post-content">
-  <div class="terminal-command" aria-hidden="true"><span>shira@jewit.ch:~$</span> cat ~/posts/{{ page.fileSlug }}.md</div>
-  <main>
-    <article class="post-article">
-      <header class="post-heading">
-        <h1>{{ title }}</h1>
-        {% if description %}<p>{{ description }}</p>{% endif %}
-      </header>
-      <div class="post-meta">
-        <span>Published {{ date | readableDate }}</span>
-        {% for tag in tags | tagList %}<span class="post-tag">{{ tag }}</span>{% endfor %}
-      </div>
-      <div class="post-body">{{ content | safe }}</div>
-    </article>
-    <a class="back-link" href="/blog/">Return to Blog</a>
-  </main>
-</div>
+<article class="single-post"><header class="post-header"><div class="post-meta"><time datetime="{{ date.toISOString() }}">{{ date | readableDate }}</time></div><h1 class="post-title">{{ title }}</h1></header><div class="post-content">{{ content | safe }}</div><footer class="post-footer"><a href="/blog/" class="back-link">← Back to all posts</a></footer></article>
+<aside class="post-sidebar"><div class="author-card"><div class="author-image"><img src="/assets/profile.png" alt="Shira"></div><div class="author-info"><h3>Written by Shira</h3><p>Disabled Jewish Witch, writer, music devotee, and believer in a more humane internet.</p><div class="social-links"><a href="https://social.lol/@jewitch" rel="me" class="social-link">Mastodon</a><a href="/about/" class="social-link">About</a></div></div></div></aside>

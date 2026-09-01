@@ -1,34 +1,25 @@
 ---
-layout: layouts/page.njk
+layout: layouts/base.njk
 title: Notes
 description: Short dispatches from Shira's corner of the Fediverse.
 permalink: /notes/index.html
 ---
-<div class="notes-index">
-  <header class="notes-hero">
-    <p class="notes-kicker">@jewitch@social.lol</p>
-    <h1>Notes from the Fediverse</h1>
-    <p>Short thoughts published on Mastodon. Replies and boosts stay there; original public posts are collected here.</p>
-    <a class="mastodon-follow" href="https://social.lol/@jewitch" rel="me external"><i class="fa-brands fa-mastodon" aria-hidden="true"></i> Follow on Mastodon</a>
-  </header>
-
-  {% if collections.notes.length %}
-  <div class="notes-list">
-    {% for note in collections.notes %}
-    <article class="note-card">
-      <header>
-        <time datetime="{{ note.data.mastodon_created_at }}">{{ note.date | readableDate }}</time>
-        <span aria-hidden="true">● public</span>
-      </header>
-      <div class="note-card-body">{{ note.content | safe }}</div>
-      <footer>
-        <a href="{{ note.url }}">Permalink</a>
-        <a href="{{ note.data.source_url }}" rel="external">Conversation on Mastodon →</a>
-      </footer>
-    </article>
-    {% endfor %}
-  </div>
-  {% else %}
-  <div class="notes-empty"><p>No notes have been imported yet. The first sync runs automatically after deployment.</p></div>
-  {% endif %}
+<section class="hero compact-hero"><div class="hero-content">
+  <h1 class="site-headline">FediverseNotes</h1>
+  <p class="site-description">Short public posts imported from @jewitch@social.lol.</p>
+  <div class="hero-badge"><a class="activitypub-badge" href="https://social.lol/@jewitch" rel="me external">@follow ActivityPub</a></div>
+</div></section>
+<div class="content-wrapper">
+  <main class="posts-container">
+  {% for note in collections.notes %}
+  <article class="post-card"><div class="post-card-content">
+    <div class="post-meta"><time datetime="{{ note.data.mastodon_created_at }}">{{ note.date | readableDate }}</time></div>
+    <div class="post-excerpt fediverse-content">{{ note.content | safe }}</div>
+    <div class="card-actions"><a href="{{ note.url }}" class="read-more">permalink()</a><a href="{{ note.data.source_url }}" class="read-more">conversation() →</a></div>
+  </div></article>
+  {% endfor %}
+  </main>
+  <aside class="sidebar">
+    <div class="activitypub-card"><h3>Federated Content</h3><p>Original public posts sync automatically. Replies and boosts remain on Mastodon.</p><a href="https://social.lol/@jewitch" class="activitypub-link" rel="me external">Follow Shira</a></div>
+  </aside>
 </div>
