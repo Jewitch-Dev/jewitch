@@ -1,4 +1,6 @@
 ---
+layout: layouts/page.njk
+permalink: /colophon/index.html
 title: Colophon
 description: How Jewitch is built, hosted, maintained, and cared for.
 created: "2026-06-25 00:00:00"

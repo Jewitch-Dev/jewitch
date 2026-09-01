@@ -1,0 +1,48 @@
+name: Build Eleventy site
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/neato-publish.yml"
+      - "content/posts/**"
+      - "content/**"
+      - "_includes/**"
+      - "_data/**"
+      - "eleventy.config.js"
+      - "package.json"
+      - "package-lock.json"
+      - "scripts/**"
+      - "tina/**"
+      - ".pages.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build site with Eleventy
+        run: npm run build
+
+      - name: Commit generated site
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Build Eleventy site"
+          file_pattern: "_site/**"

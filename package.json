@@ -1,19 +1,10 @@
 {
   "type": "module",
   "scripts": {
-    "tina:build": "tinacms build",
-    "social:images": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/generate-social-images.ps1",
-    "neato:build": "npm run social:images && php neato.php",
-    "build": "tinacms build && npm run neato:build"
+    "start": "eleventy --serve",
+    "build": "eleventy"
   },
   "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "tinacms": "^3.9.3"
-  },
-  "devDependencies": {
-    "@types/node": "^24.0.3",
-    "@tinacms/cli": "^2.5.1",
-    "typescript": "^5.8.3"
+    "@11ty/eleventy": "^3.1.2"
   }
 }

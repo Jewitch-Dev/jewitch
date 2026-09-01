@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and title != site.name %}{{ title }} | {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <meta property="og:title" content="{{ title or site.name }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:type" content="{% if page.filePathStem.startsWith('/posts/') %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="fediverse:creator" content="{{ site.fediverse }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="/feed.xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body{% if page.filePathStem.startsWith('/posts/') %} class="post-page"{% endif %}>
+  <a class="visually-hidden" rel="me" href="https://social.lol/@jewitch">Mastodon</a>
+  <div class="site">
+    <header class="site-header">
+      <h1 class="site-title"><a href="/">{{ site.name }}</a></h1>
+      <div class="tagline">{{ site.tagline }}</div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about/">About</a>
+        <a href="/now/">Now</a>
+        <a href="/colophon/">Colophon</a>
+      </nav>
+    </header>
+    {{ content | safe }}
+    <footer class="site-footer">Copyright 2026 {{ site.author }}. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</footer>
+  </div>
+</body>
+</html>
