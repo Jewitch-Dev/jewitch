@@ -69,6 +69,14 @@ uuid: 17007495-212a-4610-bf8f-b9d7c890ff52
 </span>
 </a>
 
+<a href="/notes/">
+<i class="fa-brands fa-mastodon" aria-hidden="true"></i>
+<span>
+<strong>From the Fediverse</strong>
+<em>Short notes published from Mastodon, with links back to the conversation.</em>
+</span>
+</a>
+
 <a href="/now/">
 <i class="fa-solid fa-sparkles" aria-hidden="true"></i>
 <span>
@@ -76,5 +84,29 @@ uuid: 17007495-212a-4610-bf8f-b9d7c890ff52
 <em>What I am listening to, watching, building, and surviving right now.</em>
 </span>
 </a>
+</section>
+
+<section class="home-notes" aria-labelledby="latest-notes-heading">
+<div class="home-section-heading">
+<div>
+<p class="home-kicker">From @jewitch@social.lol</p>
+<h2 id="latest-notes-heading">Latest Notes</h2>
+</div>
+<a href="/notes/">View all notes →</a>
+</div>
+
+{% if collections.notes.length %}
+<div class="note-preview-grid">
+{% for note in collections.notes %}{% if loop.index <= 3 %}
+<article class="note-preview">
+<time datetime="{{ note.data.mastodon_created_at }}">{{ note.date | readableDate }}</time>
+<p>{{ note.data.description }}</p>
+<a href="{{ note.url }}">Read note →</a>
+</article>
+{% endif %}{% endfor %}
+</div>
+{% else %}
+<p class="notes-empty">Connecting to the Fediverse. Notes will appear here after the next sync.</p>
+{% endif %}
 </section>
 </div>

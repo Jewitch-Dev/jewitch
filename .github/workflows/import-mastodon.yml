@@ -1,0 +1,41 @@
+name: Import Mastodon notes
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: import-mastodon-notes
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Import public Mastodon posts
+        run: npm run fetch:mastodon
+        env:
+          MASTODON_INSTANCE: https://social.lol
+          MASTODON_USERNAME: jewitch
+          MASTODON_MAX_POSTS: 100
+      - name: Save imported notes
+        run: |
+          git config user.name "Jewitch Fediverse Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add content/notes/imported
+          git diff --cached --quiet && exit 0
+          git commit -m "Import Mastodon notes"
+          git pull --rebase origin main
+          git push origin HEAD:main

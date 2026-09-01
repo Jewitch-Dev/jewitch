@@ -7,7 +7,7 @@
   <meta name="description" content="{{ description or site.description }}">
   <meta property="og:title" content="{{ title or site.name }}">
   <meta property="og:description" content="{{ description or site.description }}">
-  <meta property="og:type" content="{% if page.filePathStem.startsWith('/posts/') %}article{% else %}website{% endif %}">
+  <meta property="og:type" content="{% if page.filePathStem.startsWith('/posts/') or page.filePathStem.startsWith('/notes/imported/') %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:site_name" content="{{ site.name }}">
   <meta name="twitter:card" content="summary">
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/terminal.css">
 </head>
-<body{% if page.filePathStem.startsWith('/posts/') %} class="post-page"{% endif %}>
+<body{% if page.filePathStem.startsWith('/posts/') %} class="post-page"{% elif page.filePathStem.startsWith('/notes/') %} class="notes-page"{% endif %}>
   <a class="visually-hidden" rel="me" href="https://social.lol/@jewitch">Mastodon</a>
   <div class="site">
     <header class="site-header">
@@ -31,6 +31,7 @@
       <nav class="site-nav" aria-label="Main navigation">
         <a href="/">~/home</a>
         <a href="/blog/">~/posts</a>
+        <a href="/notes/">~/notes</a>
         <a href="/about/">~/about</a>
         <a href="/now/">~/now</a>
         <a href="/colophon/">~/colophon</a>

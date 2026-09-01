@@ -14,6 +14,10 @@ export default function (eleventyConfig) {
     collectionApi.getFilteredByGlob("content/posts/*.md").sort((a, b) => b.date - a.date)
   );
 
+  eleventyConfig.addCollection("notes", (collectionApi) =>
+    collectionApi.getFilteredByGlob("content/notes/imported/*.md").sort((a, b) => b.date - a.date)
+  );
+
   eleventyConfig.addFilter("readableDate", (date) =>
     new Intl.DateTimeFormat("en-US", {
       year: "numeric",

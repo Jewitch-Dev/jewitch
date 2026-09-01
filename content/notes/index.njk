@@ -1,0 +1,34 @@
+---
+layout: layouts/page.njk
+title: Notes
+description: Short dispatches from Shira's corner of the Fediverse.
+permalink: /notes/index.html
+---
+<div class="notes-index">
+  <header class="notes-hero">
+    <p class="notes-kicker">@jewitch@social.lol</p>
+    <h1>Notes from the Fediverse</h1>
+    <p>Short thoughts published on Mastodon. Replies and boosts stay there; original public posts are collected here.</p>
+    <a class="mastodon-follow" href="https://social.lol/@jewitch" rel="me external"><i class="fa-brands fa-mastodon" aria-hidden="true"></i> Follow on Mastodon</a>
+  </header>
+
+  {% if collections.notes.length %}
+  <div class="notes-list">
+    {% for note in collections.notes %}
+    <article class="note-card">
+      <header>
+        <time datetime="{{ note.data.mastodon_created_at }}">{{ note.date | readableDate }}</time>
+        <span aria-hidden="true">● public</span>
+      </header>
+      <div class="note-card-body">{{ note.content | safe }}</div>
+      <footer>
+        <a href="{{ note.url }}">Permalink</a>
+        <a href="{{ note.data.source_url }}" rel="external">Conversation on Mastodon →</a>
+      </footer>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="notes-empty"><p>No notes have been imported yet. The first sync runs automatically after deployment.</p></div>
+  {% endif %}
+</div>
