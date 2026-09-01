@@ -2,6 +2,11 @@ name: Import Mastodon notes
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/fetch-mastodon.js
+      - .github/workflows/import-mastodon.yml
   schedule:
     - cron: "17 * * * *"
 
