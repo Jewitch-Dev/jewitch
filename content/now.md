@@ -1,4 +1,6 @@
 ---
+layout: layouts/page.njk
+permalink: /now/index.html
 title: Now
 description: A brief glimpse into the parts that make up the whole we call the Jewitch!
 created: "2026-06-15 22:35:48"

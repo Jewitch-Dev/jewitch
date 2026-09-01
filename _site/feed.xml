@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jewitch</title>
+  <subtitle>Random brain droppings from Shira: politics, disability, technology, music, memory, Jewishness, witchcraft, and survival.</subtitle>
+  <link href="https://www.jewit.ch/feed.xml" rel="self"/>
+  <link href="https://www.jewit.ch/"/>
+  <id>https://www.jewit.ch/</id>
+  <updated>2026-09-01T16:47:08.459Z</updated>
+  <author><name>Shira</name></author>
+  
+</feed>

@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Blog
 description: Blog archive
 created: "2026-06-15 22:42:41"

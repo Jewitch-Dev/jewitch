@@ -1,4 +1,6 @@
 ---
+layout: layouts/page.njk
+permalink: /about/index.html
 title: About
 description: About Shira, Jewitch, and the beliefs behind this little corner of the web.
 created: "2026-06-15 23:15:00"

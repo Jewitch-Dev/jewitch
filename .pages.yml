@@ -1,6 +1,6 @@
 media:
-  input: published/media
-  output: /media
+  input: content/assets
+  output: /assets
 
 content:
   - name: posts
@@ -8,6 +8,13 @@ content:
     type: collection
     path: content/posts
     filename: "{year}-{month}-{day}-{title}.md"
+    view:
+      fields: [title, created, tags]
+      primary: title
+      sort: [created, title]
+      default:
+        sort: created
+        order: desc
     fields:
       - name: title
         label: Title
@@ -16,20 +23,21 @@ content:
       - name: description
         label: Description
         type: text
+        description: A short summary used on social media and by search engines.
       - name: created
-        label: Created
+        label: Published
         type: date
         options:
           time: true
       - name: modified
-        label: Modified
+        label: Last updated
         type: date
         options:
           time: true
       - name: tags
         label: Tags
         type: string
-        description: "Comma-separated, like: Mania, Creativity, Personal"
+        description: "Comma-separated, like: Personal, Politics, Technology"
       - name: template
         type: string
         hidden: true
@@ -40,3 +48,40 @@ content:
       - name: body
         label: Post
         type: rich-text
+
+  - name: home
+    label: Home page
+    type: file
+    path: content/home.md
+    fields:
+      - { name: title, type: string }
+      - { name: description, type: text }
+      - { name: body, label: Page content, type: rich-text }
+  - name: about
+    label: About page
+    type: file
+    path: content/about.md
+    fields:
+      - { name: title, type: string }
+      - { name: description, type: text }
+      - { name: body, label: Page content, type: rich-text }
+  - name: now
+    label: Now page
+    type: file
+    path: content/now.md
+    fields:
+      - { name: title, type: string }
+      - { name: description, type: text }
+      - { name: body, label: Page content, type: rich-text }
+  - name: colophon
+    label: Colophon
+    type: file
+    path: content/colophon.md
+    fields:
+      - { name: title, type: string }
+      - { name: description, type: text }
+      - { name: body, label: Page content, type: rich-text }
+
+settings:
+  content:
+    merge: direct

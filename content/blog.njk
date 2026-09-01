@@ -1,0 +1,25 @@
+---
+title: Blog
+description: Essays, rants, reflections, and random brain droppings from Shira.
+layout: layouts/page.njk
+permalink: /blog/index.html
+---
+<h1>Blog</h1>
+<p class="blog-intro">A personal blog. Random brain droppings, late-night projects, music, memory, and whatever else wanders through.</p>
+{% set currentYear = "" %}
+{% for post in collections.posts %}
+  {% set postYear = post.date.getUTCFullYear() %}
+  {% if postYear != currentYear %}
+    {% if currentYear %}</ul>{% endif %}
+    <h2 class="archive-year">{{ postYear }}</h2>
+    <ul class="post-list archive-list">
+    {% set currentYear = postYear %}
+  {% endif %}
+  <li class="archive-item">
+    <a class="archive-link" href="{{ post.url }}">
+      <time datetime="{{ post.date.toISOString() }}">{{ post.date | shortDate }}</time>
+      <span>{{ post.data.title }}</span>
+    </a>
+  </li>
+{% endfor %}
+{% if collections.posts.length %}</ul>{% endif %}

@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+---
+<div class="content post-content">
+  <main>
+    <article class="post-article">
+      <header class="post-heading">
+        <h1>{{ title }}</h1>
+        {% if description %}<p>{{ description }}</p>{% endif %}
+      </header>
+      <div class="post-meta">
+        <span>Published {{ date | readableDate }}</span>
+        {% for tag in tags | tagList %}<span class="post-tag">{{ tag }}</span>{% endfor %}
+      </div>
+      <div class="post-body">{{ content | safe }}</div>
+    </article>
+    <a class="back-link" href="/blog/">Return to Blog</a>
+  </main>
+</div>
