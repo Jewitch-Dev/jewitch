@@ -15,22 +15,29 @@
   <link rel="alternate" type="application/atom+xml" title="Jewitch" href="/feed.xml">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/terminal.css">
 </head>
 <body class="post-page">
   <a class="visually-hidden" rel="me" href="https://social.lol/@jewitch">Mastodon</a>
   <div class="site">
     <header class="site-header">
-      <h1 class="site-title"><a href="/">Jewitch</a></h1>
-      <div class="tagline">Musings of a Jewish Witch</div>
+      <div class="terminal-bar" aria-hidden="true">
+        <span class="terminal-lights"><i></i><i></i><i></i></span>
+        <span>shira@jewit.ch:~</span>
+        <span>UTF-8</span>
+      </div>
+      <h1 class="site-title"><a href="/"><span aria-hidden="true">$</span> Jewitch</a></h1>
+      <div class="tagline"><span aria-hidden="true">//</span> Musings of a Jewish Witch</div>
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="/about/">About</a>
-        <a href="/now/">Now</a>
-        <a href="/colophon/">Colophon</a>
+        <a href="/">~/home</a>
+        <a href="/blog/">~/posts</a>
+        <a href="/about/">~/about</a>
+        <a href="/now/">~/now</a>
+        <a href="/colophon/">~/colophon</a>
       </nav>
     </header>
     <div class="content post-content">
+  <div class="terminal-command" aria-hidden="true"><span>shira@jewit.ch:~$</span> cat ~/posts/pride-2026-real-soul-searching.md</div>
   <main>
     <article class="post-article">
       <header class="post-heading">
@@ -58,7 +65,7 @@
   </main>
 </div>
 
-    <footer class="site-footer">Copyright 2026 Shira. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</footer>
+    <footer class="site-footer"><span aria-hidden="true">shira@jewit.ch:~$</span> Copyright 2026 Shira · Built with <a href="https://www.11ty.dev/">Eleventy</a> <span class="terminal-cursor" aria-hidden="true"></span></footer>
   </div>
 </body>
 </html>
