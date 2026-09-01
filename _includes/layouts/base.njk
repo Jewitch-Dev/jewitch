@@ -15,23 +15,29 @@
   <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="/feed.xml">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/terminal.css">
 </head>
 <body{% if page.filePathStem.startsWith('/posts/') %} class="post-page"{% endif %}>
   <a class="visually-hidden" rel="me" href="https://social.lol/@jewitch">Mastodon</a>
   <div class="site">
     <header class="site-header">
-      <h1 class="site-title"><a href="/">{{ site.name }}</a></h1>
-      <div class="tagline">{{ site.tagline }}</div>
+      <div class="terminal-bar" aria-hidden="true">
+        <span class="terminal-lights"><i></i><i></i><i></i></span>
+        <span>shira@jewit.ch:~</span>
+        <span>UTF-8</span>
+      </div>
+      <h1 class="site-title"><a href="/"><span aria-hidden="true">$</span> {{ site.name }}</a></h1>
+      <div class="tagline"><span aria-hidden="true">//</span> {{ site.tagline }}</div>
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="/about/">About</a>
-        <a href="/now/">Now</a>
-        <a href="/colophon/">Colophon</a>
+        <a href="/">~/home</a>
+        <a href="/blog/">~/posts</a>
+        <a href="/about/">~/about</a>
+        <a href="/now/">~/now</a>
+        <a href="/colophon/">~/colophon</a>
       </nav>
     </header>
     {{ content | safe }}
-    <footer class="site-footer">Copyright 2026 {{ site.author }}. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</footer>
+    <footer class="site-footer"><span aria-hidden="true">shira@jewit.ch:~$</span> Copyright 2026 {{ site.author }} · Built with <a href="https://www.11ty.dev/">Eleventy</a> <span class="terminal-cursor" aria-hidden="true"></span></footer>
   </div>
 </body>
 </html>
