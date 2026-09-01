@@ -1,4 +1,7 @@
 ---
 layout: layouts/base.njk
 ---
-<div class="content"><main>{{ content | safe }}</main></div>
+<div class="content">
+  <div class="terminal-command" aria-hidden="true"><span>shira@jewit.ch:~$</span> {% if page.fileSlug == "blog" %}ls -lt ~/posts{% else %}cat ~/{{ page.fileSlug }}.md{% endif %}</div>
+  <main>{{ content | safe }}</main>
+</div>
