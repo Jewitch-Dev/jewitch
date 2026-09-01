@@ -48,6 +48,12 @@ content:
       - name: body
         label: Post
         type: rich-text
+        options:
+          format: markdown
+          switcher: false
+          path: posts
+          rename: true
+          extensions: [jpg, jpeg, png, gif, webp]
 
   - name: home
     label: Home page
